@@ -39,11 +39,15 @@ export default function AppAppBar({ onToggleList }) {
         setOpen(newOpen);
     };
 
+    const handleHomeClick = () => {
+        window.location.href = '/';
+    };
+
     return (
         <AppBar position="fixed" sx={{ boxShadow: 0, bgcolor: 'transparent', backgroundImage: 'none', mt: 2 }}>
             <Container maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
-                    <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, cursor: 'pointer' }} onClick={handleHomeClick}>
                         <Box component="img" src="icon.svg" alt="SpaceObjects Icon" sx={{ width: 30, height: 30, mr: 1 }} />
                         <Typography variant="h6" component="div" sx={{ color: theme.palette.text.primary }}>
                             SpaceObjects.co

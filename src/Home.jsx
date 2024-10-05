@@ -94,7 +94,7 @@ function Home({ isListVisible, currentList }) {
             </Box>
             <Box component="section" sx={{p: 5, backgroundColor: theme.palette.background.default}}>
                 <Typography sx={{ color: theme.palette.text.disabled }}>
-                    Made with ❤️ by the Runtime Terror team
+                    Made with ❤ by the Runtime Terror team
                 </Typography>
             </Box>
         </Container>
