@@ -36,6 +36,12 @@ function Home({ isListVisible, currentList }) {
         { primary: 'Comet 5', secondary: '2,032,214,351 km from Earth', icon: 'beach'}
     ];
 
+    const potentialHazardous = [
+        { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'warning' },
+        { primary: 'Asteroid 1', secondary: '203,201 km from Earth', icon: 'warning' },
+        { primary: 'Comet 1', secondary: '203,201 km from Earth', icon: 'warning' }
+    ];
+
     const getListItems = () => {
         switch (currentList) {
             case 'objects':
@@ -44,8 +50,10 @@ function Home({ isListVisible, currentList }) {
                 return asteroids;
             case 'comets':
                 return comets;
+            case 'potential_Hazardous':
+                return potentialHazardous;
             case 'all':
-                return [...objects, ...asteroids, ...comets];
+                return [...objects, ...asteroids, ...comets, ...potentialHazardous];
             default:
                 return [];
         }

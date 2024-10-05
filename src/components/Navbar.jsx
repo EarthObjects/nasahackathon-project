@@ -66,6 +66,9 @@ export default function AppAppBar({ onToggleList }) {
                         <Button color="primary" variant="text" size="small" onClick={() => onToggleList('comets')}>
                             Comets
                         </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('potential_Hazardous')}>
+                            Potential Hazardous
+                        </Button>
                     </Box>
                     <Box
                         sx={{
