@@ -11,7 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
+import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
@@ -27,7 +28,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     padding: '8px 12px',
 }));
 
-export default function AppAppBar() {
+export default function AppAppBar({ onToggleList }) {
     const [open, setOpen] = React.useState(false);
 
     const toggleDrawer = (newOpen) => () => {
@@ -35,12 +36,15 @@ export default function AppAppBar() {
     };
 
     return (
-        <AppBar position="fixed" sx={{ boxShadow: 0, bgcolor: 'transparent', backgroundImage: 'none' , mt: 2}}>
+        <AppBar position="fixed" sx={{ boxShadow: 0, bgcolor: 'transparent', backgroundImage: 'none', mt: 2 }}>
             <Container maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'black' }}>
-                        SpaceObjects.co
-                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+                        <SatelliteAltIcon sx={{ mr: 1, color: 'black' }} />
+                        <Typography variant="h6" component="div" sx={{ color: 'black' }}>
+                            SpaceObjects.co
+                        </Typography>
+                    </Box>
                     <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
                     </Box>
                     <Box
@@ -50,8 +54,8 @@ export default function AppAppBar() {
                             alignItems: 'center',
                         }}
                     >
-                        <Button color="primary" variant="text" size="small">
-                            Bt1
+                        <Button color="primary" variant="text" size="small" onClick={onToggleList}>
+                            Toggle map
                         </Button>
                         <Button color="primary" variant="text" size="small">
                             Bt2
@@ -75,7 +79,7 @@ export default function AppAppBar() {
                                     </IconButton>
                                 </Box>
                                 <Divider sx={{ my: 3 }} />
-                                <MenuItem>Bt1</MenuItem>
+                                <MenuItem onClick={onToggleList}>Toggle map</MenuItem>
                                 <MenuItem>Bt2</MenuItem>
                             </Box>
                         </Drawer>
