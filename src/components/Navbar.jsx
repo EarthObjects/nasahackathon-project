@@ -50,7 +50,7 @@ export default function AppAppBar({ onToggleList }) {
                     <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, cursor: 'pointer' }} onClick={handleHomeClick}>
                         <Box component="img" src="icon.svg" alt="SpaceObjects Icon" sx={{ width: 30, height: 30, mr: 1 }} />
                         <Typography variant="h6" component="div" sx={{ color: theme.palette.text.primary }}>
-                            SpaceObjects.co
+                            EarthObjects.co
                         </Typography>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', px: 0 , gap: 1}}>
@@ -65,6 +65,9 @@ export default function AppAppBar({ onToggleList }) {
                         </Button>
                         <Button color="primary" variant="text" size="small" onClick={() => onToggleList('comets')}>
                             Comets
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('potential_Hazardous')}>
+                            Potential Hazardous
                         </Button>
                     </Box>
                     <Box

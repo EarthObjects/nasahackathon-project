@@ -4,6 +4,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ImageIcon from '@mui/icons-material/Image';
 import WorkIcon from '@mui/icons-material/Work';
 import BeachIcon from '@mui/icons-material/BeachAccess';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 const Detail = ({ item, onBack }) => {
     const getIcon = (iconName) => {
@@ -14,6 +15,8 @@ const Detail = ({ item, onBack }) => {
                 return <WorkIcon />;
             case 'beach':
                 return <BeachIcon />;
+            case 'warning':
+                return <WarningAmberIcon />;
             default:
                 return null;
         }

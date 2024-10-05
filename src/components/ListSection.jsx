@@ -3,6 +3,7 @@ import { Grid, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText,
 import ImageIcon from '@mui/icons-material/Image';
 import WorkIcon from '@mui/icons-material/Work';
 import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { useTheme } from '@mui/material/styles';
 
 const ListSection = ({ title, items, onViewMore, onItemClick }) => {
@@ -22,13 +23,14 @@ const ListSection = ({ title, items, onViewMore, onItemClick }) => {
     const iconMap = {
         image: <ImageIcon />,
         work: <WorkIcon />,
-        beach: <BeachAccessIcon />
+        beach: <BeachAccessIcon />,
+        warning: <WarningAmberIcon />,
     };
 
     return (
         <Grid sx={{ mt: 0, mb: 5 }}>
             <Typography variant="h6" component="div" gutterBottom sx={{color: theme.palette.text.primary}}>
-                {title ? title.charAt(0).toUpperCase() + title.slice(1) : 'Default Title'}
+                {title ? title.replace(/_/g, ' ').charAt(0).toUpperCase() + title.replace(/_/g, ' ').slice(1) : 'Default Title'}
             </Typography>
             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                 {(showAll ? items : items.slice(0, 4)).map((item, index) => (
