@@ -71,7 +71,7 @@ export default function AppAppBar({ onToggleList }) {
                         }}
                     >
                         <Button color="primary" variant="text" size="small" onClick={() => onToggleList('toggleMap')}>
-                            Toggle map
+                            Focus map
                         </Button>
                         <IconButton color="primary" onClick={toggleTheme}>
                             {mode === 'light' ? <Brightness7Icon /> : <Brightness4Icon />}
@@ -99,7 +99,7 @@ export default function AppAppBar({ onToggleList }) {
                                 <MenuItem onClick={() => onToggleList('objects')}>Objects</MenuItem>
                                 <MenuItem onClick={() => onToggleList('asteroids')}>Asteroids</MenuItem>
                                 <MenuItem onClick={() => onToggleList('comets')}>Comets</MenuItem>
-                                <MenuItem color={"primary"} onClick={() => onToggleList('toggleMap')}>Toggle map</MenuItem>
+                                <MenuItem color={"primary"} onClick={() => onToggleList('toggleMap')}>Focus map</MenuItem>
                             </Box>
                         </Drawer>
                     </Box>
