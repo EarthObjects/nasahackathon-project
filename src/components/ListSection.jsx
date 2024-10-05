@@ -12,7 +12,7 @@ const ListSection = ({ title, items }) => {
     };
 
     return (
-        <Grid sx={{ mt: 5, mb: 5 }}>
+        <Grid sx={{ mt: 0, mb: 5 }}>
             <Typography variant="h6" component="div" gutterBottom>
                 {title}
             </Typography>
