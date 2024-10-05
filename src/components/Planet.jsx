@@ -4,7 +4,7 @@ import { TextureLoader } from 'three';
 
 function Planet({ name }) {
     const mesh = useRef();
-    const texture = new TextureLoader().load(`/textures/${name.toLowerCase()}.jpg`);
+    const texture = new TextureLoader().load(`/textures/planets/${name.toLowerCase()}.jpg`);
 
     useFrame(() => {
         mesh.current.rotation.y += 0.001;
