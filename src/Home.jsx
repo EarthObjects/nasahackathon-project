@@ -39,7 +39,7 @@ function Home({ isListVisible, currentList }) {
     };
 
     return (
-        <Container sx={{ mt: 12 }}>
+        <Container>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={isListVisible ? 4 : 12}>
                     <Animate

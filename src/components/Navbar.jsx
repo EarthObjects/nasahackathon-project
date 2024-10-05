@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,7 +12,9 @@ import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Typography from '@mui/material/Typography';
-import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useThemeContext } from '../ThemeContext';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
@@ -30,6 +32,8 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 export default function AppAppBar({ onToggleList }) {
     const [open, setOpen] = React.useState(false);
+    const { mode, toggleTheme } = useThemeContext();
+    const theme = useTheme();
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
@@ -41,11 +45,11 @@ export default function AppAppBar({ onToggleList }) {
                 <StyledToolbar variant="dense" disableGutters>
                     <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
                         <Box component="img" src="icon.svg" alt="SpaceObjects Icon" sx={{ width: 30, height: 30, mr: 1 }} />
-                        <Typography variant="h6" component="div" sx={{ color: 'black' }}>
+                        <Typography variant="h6" component="div" sx={{ color: theme.palette.text.primary }}>
                             SpaceObjects.co
                         </Typography>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 , gap: 1}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', px: 0 , gap: 1}}>
                         <Button color="primary" variant="text" size="small" onClick={() => onToggleList('all')}>
                             All
                         </Button>
@@ -69,9 +73,9 @@ export default function AppAppBar({ onToggleList }) {
                         <Button color="primary" variant="text" size="small" onClick={() => onToggleList('toggleMap')}>
                             Toggle map
                         </Button>
-                        <Button color="primary" variant="text" size="small">
-                            Bt2
-                        </Button>
+                        <IconButton color="primary" onClick={toggleTheme}>
+                            {mode === 'light' ? <Brightness7Icon /> : <Brightness4Icon />}
+                        </IconButton>
                     </Box>
                     <Box sx={{ display: { sm: 'flex', md: 'none' } }}>
                         <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
