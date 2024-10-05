@@ -17,6 +17,7 @@
     "nasahackathon-project": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-simple-animate": "^3.5.2",
     "three": "^0.169.0"
   },
   "devDependencies": {
