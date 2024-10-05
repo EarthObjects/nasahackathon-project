@@ -27,7 +27,7 @@ function App() {
             <div>
                 <Box component="section" sx={{p: 6}}>
                 </Box>
-                <Home isListVisible={listVisible} currentList={currentList}/>
+                <Home isListVisible={listVisible} currentList={currentList} />
             </div>
         </div>
     );

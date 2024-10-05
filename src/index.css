@@ -79,7 +79,6 @@ button:focus-visible {
 
 body {
   overflow-x: hidden; /* Prevent horizontal overflow */
-  overflow-y: hidden; /* Always show vertical scrollbar */
 }
 
 .container {

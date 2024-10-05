@@ -4,9 +4,13 @@ import Grid from '@mui/material/Grid';
 import { Animate } from 'react-simple-animate';
 import ListSection from "./components/ListSection.jsx";
 import Detail from "./components/Detail.jsx";
+import {useTheme} from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function Home({ isListVisible, currentList }) {
     const [selectedItem, setSelectedItem] = useState(null);
+    const theme = useTheme();
 
     const objects = [
         { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'image' },
@@ -56,7 +60,7 @@ function Home({ isListVisible, currentList }) {
     };
 
     return (
-        <Container>
+        <Container style={{backgroundColor: theme.palette.background.default}}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={isListVisible ? 4 : 4}>
                     <Animate
@@ -82,10 +86,17 @@ function Home({ isListVisible, currentList }) {
                         end={{ transform: 'translateX(0)' }}
                         duration={0.3}
                     >
-                        <img src="1006811.gif" alt="Description" style={{ width: '100%' }} />
+                        <img src="1006811.gif" alt="Description" style={{ width: '100%'}} />
                     </Animate>
                 </Grid>
             </Grid>
+            <Box component="section" sx={{p: 8, backgroundColor: theme.palette.background.default}}>
+            </Box>
+            <Box component="section" sx={{p: 5, backgroundColor: theme.palette.background.default}}>
+                <Typography sx={{ color: theme.palette.text.disabled }}>
+                    Made with ❤ by the Runtime Terror team
+                </Typography>
+            </Box>
         </Container>
     );
 }
