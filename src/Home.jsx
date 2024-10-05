@@ -43,6 +43,22 @@ function Home() {
                             </ListItem>
                         </List>
                     </Grid>
+                    <Grid>
+                        <Typography variant="h6" component="div" gutterBottom>
+                            Comets
+                        </Typography>
+                        <List>
+                            <ListItem>
+                                <ListItemText primary="Item 1" />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary="Item 2" />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary="Item 3" />
+                            </ListItem>
+                        </List>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img src="test.png" alt="Description" style={{ width: '100%' }} />
