@@ -23,10 +23,11 @@ function App() {
     return (
         <div style={{backgroundColor: theme.palette.background.default, minHeight: '100vh'}}>
             <AppAppBar onToggleList={handleToggleList}/>
+            <img src="/bottom.png" alt="NASA" className="fixed-logo"/>
             <div>
-                <Box component="section" sx={{ p: 6 }}>
+                <Box component="section" sx={{p: 6}}>
                 </Box>
-                <Home isListVisible={listVisible} currentList={currentList} />
+                <Home isListVisible={listVisible} currentList={currentList}/>
             </div>
         </div>
     );

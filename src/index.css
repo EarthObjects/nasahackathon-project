@@ -63,3 +63,12 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.fixed-logo {
+  position: fixed;
+  bottom: 20px; /* Adjust the bottom position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  width: 250px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 1000; /* Ensure it is on top of other elements */
+}
