@@ -1,21 +1,24 @@
-import React, {useState} from 'react';
-import './App.css';
-import Navbar from './components/Navbar.jsx';
+import React, { useState } from 'react';
 import Home from './Home';
+import AppAppBar from './components/Navbar';
 
 function App() {
-    const [isListVisible, setIsListVisible] = useState(true);
+    const [listVisible, setListVisible] = useState(true);
+    const [currentList, setCurrentList] = useState('all');
 
-    const handleToggleList = () => {
-        setIsListVisible(!isListVisible);
-    }
+    const handleToggleList = (listName) => {
+        if (listName === 'toggleMap') {
+            setListVisible(!listVisible);
+        } else {
+            setCurrentList(listName);
+            setListVisible(true);
+        }
+    };
 
     return (
-        <div className="App">
-            <Navbar onToggleList={handleToggleList}/>
-            <div className="content">
-                <Home isListVisible={isListVisible} />
-            </div>
+        <div>
+            <AppAppBar onToggleList={handleToggleList} />
+            <Home isListVisible={listVisible} currentList={currentList} />
         </div>
     );
 }

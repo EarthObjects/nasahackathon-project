@@ -40,12 +40,24 @@ export default function AppAppBar({ onToggleList }) {
             <Container maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
                     <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-                        <SatelliteAltIcon sx={{ mr: 1, color: 'black' }} />
+                        <Box component="img" src="icon.svg" alt="SpaceObjects Icon" sx={{ width: 30, height: 30, mr: 1 }} />
                         <Typography variant="h6" component="div" sx={{ color: 'black' }}>
                             SpaceObjects.co
                         </Typography>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
+                    <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 , gap: 1}}>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('all')}>
+                            All
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('objects')}>
+                            Objects
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('asteroids')}>
+                            Asteroids
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('comets')}>
+                            Comets
+                        </Button>
                     </Box>
                     <Box
                         sx={{
@@ -54,7 +66,7 @@ export default function AppAppBar({ onToggleList }) {
                             alignItems: 'center',
                         }}
                     >
-                        <Button color="primary" variant="text" size="small" onClick={onToggleList}>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('toggleMap')}>
                             Toggle map
                         </Button>
                         <Button color="primary" variant="text" size="small">
@@ -79,8 +91,11 @@ export default function AppAppBar({ onToggleList }) {
                                     </IconButton>
                                 </Box>
                                 <Divider sx={{ my: 3 }} />
-                                <MenuItem onClick={onToggleList}>Toggle map</MenuItem>
-                                <MenuItem>Bt2</MenuItem>
+                                <MenuItem onClick={() => onToggleList('all')}>All</MenuItem>
+                                <MenuItem onClick={() => onToggleList('objects')}>Objects</MenuItem>
+                                <MenuItem onClick={() => onToggleList('asteroids')}>Asteroids</MenuItem>
+                                <MenuItem onClick={() => onToggleList('comets')}>Comets</MenuItem>
+                                <MenuItem color={"primary"} onClick={() => onToggleList('toggleMap')}>Toggle map</MenuItem>
                             </Box>
                         </Drawer>
                     </Box>
