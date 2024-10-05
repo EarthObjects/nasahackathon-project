@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,7 +11,10 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useThemeContext } from '../ThemeContext';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
@@ -27,21 +30,38 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     padding: '8px 12px',
 }));
 
-export default function AppAppBar() {
+export default function AppAppBar({ onToggleList }) {
     const [open, setOpen] = React.useState(false);
+    const { mode, toggleTheme } = useThemeContext();
+    const theme = useTheme();
 
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
 
     return (
-        <AppBar position="fixed" sx={{ boxShadow: 0, bgcolor: 'transparent', backgroundImage: 'none' , mt: 2}}>
+        <AppBar position="fixed" sx={{ boxShadow: 0, bgcolor: 'transparent', backgroundImage: 'none', mt: 2 }}>
             <Container maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'black' }}>
-                        SpaceObjects.co
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+                        <Box component="img" src="icon.svg" alt="SpaceObjects Icon" sx={{ width: 30, height: 30, mr: 1 }} />
+                        <Typography variant="h6" component="div" sx={{ color: theme.palette.text.primary }}>
+                            SpaceObjects.co
+                        </Typography>
+                    </Box>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', px: 0 , gap: 1}}>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('all')}>
+                            All
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('objects')}>
+                            Objects
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('asteroids')}>
+                            Asteroids
+                        </Button>
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('comets')}>
+                            Comets
+                        </Button>
                     </Box>
                     <Box
                         sx={{
@@ -50,12 +70,12 @@ export default function AppAppBar() {
                             alignItems: 'center',
                         }}
                     >
-                        <Button color="primary" variant="text" size="small">
-                            Bt1
+                        <Button color="primary" variant="text" size="small" onClick={() => onToggleList('toggleMap')}>
+                            Focus map
                         </Button>
-                        <Button color="primary" variant="text" size="small">
-                            Bt2
-                        </Button>
+                        <IconButton color="primary" onClick={toggleTheme}>
+                            {mode === 'light' ? <Brightness7Icon /> : <Brightness4Icon />}
+                        </IconButton>
                     </Box>
                     <Box sx={{ display: { sm: 'flex', md: 'none' } }}>
                         <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
@@ -75,8 +95,11 @@ export default function AppAppBar() {
                                     </IconButton>
                                 </Box>
                                 <Divider sx={{ my: 3 }} />
-                                <MenuItem>Bt1</MenuItem>
-                                <MenuItem>Bt2</MenuItem>
+                                <MenuItem onClick={() => onToggleList('all')}>All</MenuItem>
+                                <MenuItem onClick={() => onToggleList('objects')}>Objects</MenuItem>
+                                <MenuItem onClick={() => onToggleList('asteroids')}>Asteroids</MenuItem>
+                                <MenuItem onClick={() => onToggleList('comets')}>Comets</MenuItem>
+                                <MenuItem color={"primary"} onClick={() => onToggleList('toggleMap')}>Focus map</MenuItem>
                             </Box>
                         </Drawer>
                     </Box>
