@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { Animate } from 'react-simple-animate';
 import ListSection from "./components/ListSection.jsx";
+import Detail from "./components/Detail.jsx";
 
 function Home({ isListVisible, currentList }) {
+    const [selectedItem, setSelectedItem] = useState(null);
+
     const objects = [
         { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'image' },
         { primary: 'Object 2', secondary: '2,032,051 km from Earth', icon: 'work' },
@@ -38,6 +41,14 @@ function Home({ isListVisible, currentList }) {
         }
     };
 
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+    };
+
+    const handleBack = () => {
+        setSelectedItem(null);
+    };
+
     return (
         <Container>
             <Grid container spacing={2}>
@@ -48,10 +59,13 @@ function Home({ isListVisible, currentList }) {
                         end={{ opacity: 1, transform: 'translateX(0)' }}
                         duration={0.3}
                     >
-                        {isListVisible && (
+                        {isListVisible && !selectedItem && (
                             <div>
-                                <ListSection title={currentList} items={getListItems()} onViewMore={() => {}} />
+                                <ListSection title={currentList} items={getListItems()} onViewMore={() => {}} onItemClick={handleItemClick} />
                             </div>
+                        )}
+                        {selectedItem && (
+                            <Detail item={selectedItem} onBack={handleBack} />
                         )}
                     </Animate>
                 </Grid>
@@ -62,7 +76,7 @@ function Home({ isListVisible, currentList }) {
                         end={{ transform: 'scale(1.5)' }}
                         duration={0.3}
                     >
-                        <img src="test.png" alt="Description" style={{ width: '100%' }} />
+                            <img src="test.png" alt="Description" style={{ width: '100%' }} />
                     </Animate>
                 </Grid>
             </Grid>
