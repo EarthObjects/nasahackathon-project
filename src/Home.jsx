@@ -96,7 +96,11 @@ function Home({ isListVisible, currentList }) {
                         duration={0.3}
                     >
                         {selectedItem && (
+                            <Box>
                             <Detail item={selectedItem} onBack={handleBack} />
+                                <Box sx={{ p: 14 }}>
+                                </Box>
+                            </Box>
                         )}
                     </Animate>
                 </Grid>
@@ -107,7 +111,7 @@ function Home({ isListVisible, currentList }) {
                         end={{ transform: 'translateX(0)' }}
                         duration={0.3}
                     >
-                        <SpaceObjects style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} theme={theme} />
+                        <SpaceObjects style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', overflow: 'hidden' }} theme={theme} />
                     </Animate>
                 </Grid>
             </Grid>
