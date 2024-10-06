@@ -1,112 +1,194 @@
-import React, { useState } from 'react';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import { Animate } from 'react-simple-animate';
+import React, { useState, useEffect, useRef } from "react";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import { Animate } from "react-simple-animate";
 import ListSection from "./components/ListSection.jsx";
 import Detail from "./components/Detail.jsx";
-import {useTheme} from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { initializeGame } from "./gameSimulation/gameSimulation.js";
 
 function Home({ isListVisible, currentList }) {
-    const [selectedItem, setSelectedItem] = useState(null);
-    const theme = useTheme();
+	const [selectedItem, setSelectedItem] = useState(null);
+	const theme = useTheme();
+	const gameContainerRef = useRef(null);
+	const gameInstanceRef = useRef(null);
 
-    const objects = [
-        { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'image' },
-        { primary: 'Object 2', secondary: '2,032,051 km from Earth', icon: 'image' },
-        { primary: 'Object 3', secondary: '2,032,214,351 km from Earth', icon: 'image' },
-        { primary: 'Object 4', secondary: '2,032,214,351 km from Earth', icon: 'image'},
-        { primary: 'Object 5', secondary: '2,032,214,351 km from Earth', icon: 'image'}
-    ];
+	useEffect(() => {
+		if (gameContainerRef.current) {
+			// Initialise the game and store the cleanup function
+			const { cleanup } = initializeGame(gameContainerRef.current);
+			gameInstanceRef.current = { cleanup };
+		}
 
-    const asteroids = [
-        { primary: 'Asteroid 1', secondary: '203,201 km from Earth', icon: 'work' },
-        { primary: 'Asteroid 2', secondary: '2,032,051 km from Earth', icon: 'work' },
-        { primary: 'Asteroid 3', secondary: '2,032,214,351 km from Earth', icon: 'work' },
-        { primary: 'Asteroid 4', secondary: '2,032,214,351 km from Earth', icon: 'work' },
-        { primary: 'Asteroid 5', secondary: '2,032,214,351 km from Earth', icon: 'work' }
-    ];
+		// Cleanup function to dispose of the game when component unmounts
+		return () => {
+			if (gameInstanceRef.current && gameInstanceRef.current.cleanup) {
+				gameInstanceRef.current.cleanup();
+				gameInstanceRef.current = null;
+			}
+		};
+	}, []);
 
-    const comets = [
-        { primary: 'Comet 1', secondary: '203,201 km from Earth', icon: 'beach' },
-        { primary: 'Comet 2', secondary: '2,032,051 km from Earth', icon: 'beach' },
-        { primary: 'Comet 3', secondary: '2,032,214,351 km from Earth', icon: 'beach' },
-        { primary: 'Comet 4', secondary: '2,032,214,351 km from Earth', icon: 'beach' },
-        { primary: 'Comet 5', secondary: '2,032,214,351 km from Earth', icon: 'beach'}
-    ];
+	const objects = [
+		{ primary: "Object 1", secondary: "203,201 km from Earth", icon: "image" },
+		{
+			primary: "Object 2",
+			secondary: "2,032,051 km from Earth",
+			icon: "image",
+		},
+		{
+			primary: "Object 3",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "image",
+		},
+		{
+			primary: "Object 4",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "image",
+		},
+		{
+			primary: "Object 5",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "image",
+		},
+	];
 
-    const potentialHazardous = [
-        { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'warning' },
-        { primary: 'Asteroid 1', secondary: '203,201 km from Earth', icon: 'warning' },
-        { primary: 'Comet 1', secondary: '203,201 km from Earth', icon: 'warning' }
-    ];
+	const asteroids = [
+		{ primary: "Asteroid 1", secondary: "203,201 km from Earth", icon: "work" },
+		{
+			primary: "Asteroid 2",
+			secondary: "2,032,051 km from Earth",
+			icon: "work",
+		},
+		{
+			primary: "Asteroid 3",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "work",
+		},
+		{
+			primary: "Asteroid 4",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "work",
+		},
+		{
+			primary: "Asteroid 5",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "work",
+		},
+	];
 
-    const getListItems = () => {
-        switch (currentList) {
-            case 'objects':
-                return objects;
-            case 'asteroids':
-                return asteroids;
-            case 'comets':
-                return comets;
-            case 'potential_Hazardous':
-                return potentialHazardous;
-            case 'all':
-                return [...objects, ...asteroids, ...comets, ...potentialHazardous];
-            default:
-                return [];
-        }
-    };
+	const comets = [
+		{ primary: "Comet 1", secondary: "203,201 km from Earth", icon: "beach" },
+		{ primary: "Comet 2", secondary: "2,032,051 km from Earth", icon: "beach" },
+		{
+			primary: "Comet 3",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "beach",
+		},
+		{
+			primary: "Comet 4",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "beach",
+		},
+		{
+			primary: "Comet 5",
+			secondary: "2,032,214,351 km from Earth",
+			icon: "beach",
+		},
+	];
 
-    const handleItemClick = (item) => {
-        setSelectedItem(item);
-    };
+	const potentialHazardous = [
+		{
+			primary: "Object 1",
+			secondary: "203,201 km from Earth",
+			icon: "warning",
+		},
+		{
+			primary: "Asteroid 1",
+			secondary: "203,201 km from Earth",
+			icon: "warning",
+		},
+		{ primary: "Comet 1", secondary: "203,201 km from Earth", icon: "warning" },
+	];
 
-    const handleBack = () => {
-        setSelectedItem(null);
-    };
+	const getListItems = () => {
+		switch (currentList) {
+			case "objects":
+				return objects;
+			case "asteroids":
+				return asteroids;
+			case "comets":
+				return comets;
+			case "potential_Hazardous":
+				return potentialHazardous;
+			case "all":
+				return [...objects, ...asteroids, ...comets, ...potentialHazardous];
+			default:
+				return [];
+		}
+	};
 
-    return (
-        <Container style={{backgroundColor: theme.palette.background.default}}>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={isListVisible ? 4 : 4}>
-                    <Animate
-                        play={isListVisible}
-                        start={{ opacity: 0, transform: 'translateX(-100%)' }}
-                        end={{ opacity: 1, transform: 'translateX(0)' }}
-                        duration={0.3}
-                    >
-                        {isListVisible && !selectedItem && (
-                            <div>
-                                <ListSection title={currentList} items={getListItems()} onViewMore={() => {}} onItemClick={handleItemClick} />
-                            </div>
-                        )}
-                        {selectedItem && (
-                            <Detail item={selectedItem} onBack={handleBack} />
-                        )}
-                    </Animate>
-                </Grid>
-                <Grid item xs={12} md={isListVisible ? 8 : 8}>
-                    <Animate
-                        play={isListVisible}
-                        start={{ transform: 'translateX(-25%) scale(1.5)' }}
-                        end={{ transform: 'translateX(0)' }}
-                        duration={0.3}
-                    >
-                        <img src="1006811.gif" alt="Description" style={{ width: '100%'}} />
-                    </Animate>
-                </Grid>
-            </Grid>
-            <Box component="section" sx={{p: 8, backgroundColor: theme.palette.background.default}}>
-            </Box>
-            <Box component="section" sx={{p: 5, backgroundColor: theme.palette.background.default}}>
-                <Typography sx={{ color: theme.palette.text.disabled }}>
-                    Made with ❤ by the Runtime Terror team
-                </Typography>
-            </Box>
-        </Container>
-    );
+	const handleItemClick = (item) => {
+		setSelectedItem(item);
+	};
+
+	const handleBack = () => {
+		setSelectedItem(null);
+	};
+
+	return (
+		<Container style={{ backgroundColor: theme.palette.background.default }}>
+			<Grid container spacing={2}>
+				<Grid item xs={12} md={isListVisible ? 4 : 4}>
+					<Animate
+						play={isListVisible}
+						start={{ opacity: 0, transform: "translateX(-100%)" }}
+						end={{ opacity: 1, transform: "translateX(0)" }}
+						duration={0.3}
+					>
+						{isListVisible && !selectedItem && (
+							<div>
+								<ListSection
+									title={currentList}
+									items={getListItems()}
+									onViewMore={() => {}}
+									onItemClick={handleItemClick}
+								/>
+							</div>
+						)}
+						{selectedItem && <Detail item={selectedItem} onBack={handleBack} />}
+					</Animate>
+				</Grid>
+				<Grid item xs={12} md={isListVisible ? 8 : 8}>
+					<Animate
+						play={isListVisible}
+						start={{ transform: "translateX(-25%) scale(1.5)" }}
+						end={{ transform: "translateX(0)" }}
+						duration={0.3}
+					>
+						<div
+							ref={gameContainerRef}
+							style={{ width: "100%", height: "800px" }}
+						/>
+					</Animate>
+				</Grid>
+			</Grid>
+			<Box
+				component="section"
+				sx={{ p: 8, backgroundColor: theme.palette.background.default }}
+			></Box>
+			<Box
+				component="section"
+				sx={{ p: 5, backgroundColor: theme.palette.background.default }}
+			>
+				<Typography sx={{ color: theme.palette.text.disabled }}>
+					Made with ❤ by the Runtime Terror team
+				</Typography>
+			</Box>
+		</Container>
+	);
 }
 
 export default Home;
