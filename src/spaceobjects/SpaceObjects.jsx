@@ -104,7 +104,7 @@ const createStarField = (scene, count) => {
         color: 0xFFFFFF,
         size: 0.1,
         transparent: true,
-        opacity: 1,
+        opacity: 0.8,
         sizeAttenuation: true,
     });
 
