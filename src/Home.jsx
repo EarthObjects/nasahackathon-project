@@ -256,6 +256,10 @@ function Home({ isListVisible, currentList }) {
                 height: "100%",
               }}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+              theme={theme}
+>>>>>>> Stashed changes
 =======
               theme={theme}
 >>>>>>> Stashed changes
