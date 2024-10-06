@@ -104,7 +104,7 @@ const createStarField = (scene, count) => {
         color: 0xFFFFFF,
         size: 0.1,
         transparent: true,
-        opacity: 0.8,
+        opacity: 1,
         sizeAttenuation: true,
     });
 
@@ -132,8 +132,8 @@ const SpaceObjects = ({ theme }) => {
 
         // Camera setup
         const sizes = {
-            width: 800,
-            height: 400,
+            width: 760,
+            height: 500,
         };
 
         const aspect = sizes.width / sizes.height;
