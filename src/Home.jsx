@@ -4,9 +4,11 @@ import Grid from '@mui/material/Grid';
 import { Animate } from 'react-simple-animate';
 import ListSection from "./components/ListSection.jsx";
 import Detail from "./components/Detail.jsx";
-import {useTheme} from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import SpaceObjects from './spaceobjects/SpaceObjects.jsx';
+
 
 function Home({ isListVisible, currentList }) {
     const [selectedItem, setSelectedItem] = useState(null);
@@ -16,8 +18,8 @@ function Home({ isListVisible, currentList }) {
         { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'image' },
         { primary: 'Object 2', secondary: '2,032,051 km from Earth', icon: 'image' },
         { primary: 'Object 3', secondary: '2,032,214,351 km from Earth', icon: 'image' },
-        { primary: 'Object 4', secondary: '2,032,214,351 km from Earth', icon: 'image'},
-        { primary: 'Object 5', secondary: '2,032,214,351 km from Earth', icon: 'image'}
+        { primary: 'Object 4', secondary: '2,032,214,351 km from Earth', icon: 'image' },
+        { primary: 'Object 5', secondary: '2,032,214,351 km from Earth', icon: 'image' }
     ];
 
     const asteroids = [
@@ -33,7 +35,7 @@ function Home({ isListVisible, currentList }) {
         { primary: 'Comet 2', secondary: '2,032,051 km from Earth', icon: 'beach' },
         { primary: 'Comet 3', secondary: '2,032,214,351 km from Earth', icon: 'beach' },
         { primary: 'Comet 4', secondary: '2,032,214,351 km from Earth', icon: 'beach' },
-        { primary: 'Comet 5', secondary: '2,032,214,351 km from Earth', icon: 'beach'}
+        { primary: 'Comet 5', secondary: '2,032,214,351 km from Earth', icon: 'beach' }
     ];
 
     const potentialHazardous = [
@@ -68,7 +70,7 @@ function Home({ isListVisible, currentList }) {
     };
 
     return (
-        <Container style={{backgroundColor: theme.palette.background.default}}>
+        <Container style={{ backgroundColor: theme.palette.background.default }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={isListVisible ? 4 : 4}>
                     <Animate
@@ -79,7 +81,7 @@ function Home({ isListVisible, currentList }) {
                     >
                         {isListVisible && !selectedItem && (
                             <div>
-                                <ListSection title={currentList} items={getListItems()} onViewMore={() => {}} onItemClick={handleItemClick} />
+                                <ListSection title={currentList} items={getListItems()} onViewMore={() => { }} onItemClick={handleItemClick} />
                             </div>
                         )}
                         {selectedItem && (
@@ -94,13 +96,13 @@ function Home({ isListVisible, currentList }) {
                         end={{ transform: 'translateX(0)' }}
                         duration={0.3}
                     >
-                        <img src="1006811.gif" alt="Description" style={{ width: '100%'}} />
+                        <SpaceObjects style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
                     </Animate>
                 </Grid>
             </Grid>
-            <Box component="section" sx={{p: 8, backgroundColor: theme.palette.background.default}}>
+            <Box component="section" sx={{ p: 8, backgroundColor: theme.palette.background.default }}>
             </Box>
-            <Box component="section" sx={{p: 5, backgroundColor: theme.palette.background.default}}>
+            <Box component="section" sx={{ p: 5, backgroundColor: theme.palette.background.default }}>
                 <Typography sx={{ color: theme.palette.text.disabled }}>
                     Made with ❤ by the Runtime Terror team
                 </Typography>
