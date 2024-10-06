@@ -165,7 +165,6 @@ const SpaceObjects = ({ theme }) => {
         controls.minDistance = solarSystem["Sun"].getMinDistance();
         controls.maxDistance = 50;
 
-
         const changeFocus = (oldFocus, newFocus) => {
             solarSystem[oldFocus].mesh.remove(camera);
             solarSystem[newFocus].mesh.add(camera);
@@ -252,18 +251,16 @@ const SpaceObjects = ({ theme }) => {
 
         tick();
 
-        const buttons = document.querySelectorAll(".switch-camera");
-        buttons.forEach(function(button) {
-            button.addEventListener("click", function() {
-                console.log("Here");
-                const newFocus = this.getAttribute('object-name');
-                if (newFocus && planetNames.includes(newFocus)) {
-                    changeFocus(options.focus, newFocus);
+        // Listen for custom event to switch camera
+        const handleSwitchCamera = (event) => {
+            const newFocus = event.detail.planetName;
+            if (newFocus && planetNames.includes(newFocus)) {
+                changeFocus(options.focus, newFocus);
+                options.focus = newFocus;
+            }
+        };
 
-                    options.focus = newFocus;
-                }
-            });
-        });
+        window.addEventListener('switchCamera', handleSwitchCamera);
 
         // Handle window resize
         const handleResize = () => {
@@ -280,6 +277,12 @@ const SpaceObjects = ({ theme }) => {
         };
 
         window.addEventListener("resize", handleResize);
+
+        // Cleanup event listeners on unmount
+        return () => {
+            window.removeEventListener('switchCamera', handleSwitchCamera);
+            window.removeEventListener("resize", handleResize);
+        };
     }, [theme]);
 
     return (
