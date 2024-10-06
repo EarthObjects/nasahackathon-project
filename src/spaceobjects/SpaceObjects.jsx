@@ -41,7 +41,7 @@ const SpaceObjects = ({ theme }) => {
         // Camera setup
         const sizes = {
             width: 800,
-            height: 500,
+            height: 400,
         };
 
         const aspect = sizes.width / sizes.height;
@@ -53,7 +53,7 @@ const SpaceObjects = ({ theme }) => {
             canvas: canvasRef.current,
             antialias: true,
         });
-        //renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+        renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.shadowMap.enabled = true;
@@ -71,10 +71,23 @@ const SpaceObjects = ({ theme }) => {
         controls.minDistance = solarSystem["Sun"].getMinDistance();
         controls.maxDistance = 50;
 
-        // Label renderer setup
+
+        const changeFocus = (oldFocus, newFocus) => {
+            solarSystem[oldFocus].mesh.remove(camera);
+            solarSystem[newFocus].mesh.add(camera);
+            const minDistance = solarSystem[newFocus].getMinDistance();
+            controls.minDistance = minDistance;
+            fakeCamera.position.set(minDistance, minDistance / 3, 0);
+            solarSystem[oldFocus].labels.hidePOI();
+            solarSystem[newFocus].labels.showPOI();
+        };
+
         const labelRenderer = new CSS2DRenderer();
         labelRenderer.setSize(sizes.width, sizes.height);
-        document.body.appendChild(labelRenderer.domElement);
+        labelRenderer.domElement.style.position = 'absolute';
+        labelRenderer.domElement.style.top = '0';
+        labelRenderer.domElement.style.pointerEvents = 'none';
+        canvasRef.current.parentNode.appendChild(labelRenderer.domElement);
 
         // Effect composer for bloom effect
         const renderScene = new RenderPass(scene, camera);
@@ -98,30 +111,36 @@ const SpaceObjects = ({ theme }) => {
         const tick = () => {
             elapsedTime += clock.getDelta() * options.speed;
 
-            // Update the solar system objects
             for (const object of Object.values(solarSystem)) {
                 object.tick(elapsedTime);
             }
 
-            // Update camera
             camera.copy(fakeCamera);
-
-            // Update controls
             controls.update();
 
-            // Update labels
             const currentBody = solarSystem[options.focus];
             currentBody.labels.update(fakeCamera);
 
-            // Render
             bloomComposer.render();
             labelRenderer.render(scene, camera);
 
-            // Call tick again on the next frame
             requestAnimationFrame(tick);
         };
 
         tick();
+
+        const buttons = document.querySelectorAll(".switch-camera");
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                console.log("Here");
+                const newFocus = this.getAttribute('object-name');
+                if (newFocus && planetNames.includes(newFocus)) {
+                    changeFocus(options.focus, newFocus);
+
+                    options.focus = newFocus;
+                }
+            });
+        });
 
         // Handle window resize
         const handleResize = () => {
@@ -138,19 +157,11 @@ const SpaceObjects = ({ theme }) => {
         };
 
         window.addEventListener("resize", handleResize);
-
-        // Cleanup function when component unmounts
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            document.body.removeChild(labelRenderer.domElement);
-            controls.dispose();
-            renderer.dispose();
-        };
     }, [theme]);
 
     return (
         <div>
-            <canvas ref={canvasRef} className="webgl"></canvas>
+            <canvas id="test" ref={canvasRef} className="webgl"></canvas>
         </div>
     );
 };
