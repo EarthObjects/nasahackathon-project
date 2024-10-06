@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -6,11 +5,11 @@ import { CSS2DRenderer } from "three/examples/jsm/renderers/CSS2DRenderer";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass";
-import { createEnvironmentMap } from "./setup/environment-map";
 import { createLights } from "./setup/lights";
 import { createSpaceObjects } from "./setup/solar-system";
 import { LAYERS } from "./constants";
-
+import { createDarkEnvironmentMap } from "./setup/environment-dark";
+import { createClearEnvironmentMap } from "./setup/environment-clear";
 
 export const options = {
     showPaths: true,
@@ -22,12 +21,18 @@ export const options = {
     yangle: 0,
 };
 
-const SpaceObjects = () => {
+const SpaceObjects = ({ theme }) => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
         const scene = new THREE.Scene();
-        scene.background = createEnvironmentMap("./textures/environment");
+        if (theme?.palette?.mode === 'dark') {
+            console.log('dark mode');
+            scene.background = createDarkEnvironmentMap("./textures/environment");
+        } else {
+            console.log('light mode');
+            scene.background = createClearEnvironmentMap("./textures/environment");
+        }
 
         // Lights setup
         const [ambientLight, pointLight] = createLights();
@@ -48,7 +53,7 @@ const SpaceObjects = () => {
             canvas: canvasRef.current,
             antialias: true,
         });
-        renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+        //renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.shadowMap.enabled = true;
@@ -141,15 +146,12 @@ const SpaceObjects = () => {
             controls.dispose();
             renderer.dispose();
         };
-    }, []);
-
+    }, [theme]);
 
     return (
-        <>
-            <div>
-                <canvas ref={canvasRef} className="webgl"></canvas>
-            </div>
-        </>
+        <div>
+            <canvas ref={canvasRef} className="webgl"></canvas>
+        </div>
     );
 };
 

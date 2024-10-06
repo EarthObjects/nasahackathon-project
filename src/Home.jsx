@@ -96,7 +96,7 @@ function Home({ isListVisible, currentList }) {
                         end={{ transform: 'translateX(0)' }}
                         duration={0.3}
                     >
-                        <SpaceObjects style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} />
+                        <SpaceObjects style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }} theme={theme} />
                     </Animate>
                 </Grid>
             </Grid>
