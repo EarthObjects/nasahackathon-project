@@ -73,7 +73,11 @@ const SpaceObjects = ({ theme }) => {
 
         // Label renderer setup
         const labelRenderer = new CSS2DRenderer();
-        labelRenderer.setSize(sizes.width, sizes.height);
+        labelRenderer.domElement.style.position = 'absolute';
+        labelRenderer.domElement.style.top = '0';
+        labelRenderer.domElement.style.left = '0';
+        labelRenderer.domElement.style.width = '100vw';
+        labelRenderer.domElement.style.height = '100vh';
         document.body.appendChild(labelRenderer.domElement);
 
         // Effect composer for bloom effect
