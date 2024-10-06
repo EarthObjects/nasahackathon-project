@@ -9,9 +9,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SpaceObjects from './spaceobjects/SpaceObjects.jsx';
 
-
 function Home({ isListVisible, currentList }) {
     const [selectedItem, setSelectedItem] = useState(null);
+    const [isDetailVisible, setIsDetailVisible] = useState(false);
     const theme = useTheme();
 
     const objects = [
@@ -63,10 +63,14 @@ function Home({ isListVisible, currentList }) {
 
     const handleItemClick = (item) => {
         setSelectedItem(item);
+        setIsDetailVisible(true);
     };
 
     const handleBack = () => {
-        setSelectedItem(null);
+        setIsDetailVisible(false);
+        setTimeout(() => {
+            setSelectedItem(null);
+        }, 300); // Match the duration of the animation
     };
 
     return (
@@ -84,6 +88,13 @@ function Home({ isListVisible, currentList }) {
                                 <ListSection title={currentList} items={getListItems()} onViewMore={() => { }} onItemClick={handleItemClick} />
                             </div>
                         )}
+                    </Animate>
+                    <Animate
+                        play={isDetailVisible}
+                        start={{ opacity: 0, transform: 'translateY(100%)' }}
+                        end={{ opacity: 1, transform: 'translateY(0)' }}
+                        duration={0.3}
+                    >
                         {selectedItem && (
                             <Detail item={selectedItem} onBack={handleBack} />
                         )}

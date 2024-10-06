@@ -24,13 +24,14 @@ function App() {
         <div style={{backgroundColor: theme.palette.background.default, minHeight: '100vh'}}>
             <AppAppBar onToggleList={handleToggleList}/>
             <img src="/bottom.png" alt="NASA" className="fixed-logo"/>
-            <div>
-                <Box component="section" sx={{p: 6}}>
-                </Box>
-                <Home isListVisible={listVisible} currentList={currentList} />
-            </div>
+            <div style={{overflow: '', width: '100%', height: '100%'}}>
+            <Box component="section" sx={{p: 6}}>
+            </Box>
+            <Home isListVisible={listVisible} currentList={currentList}/>
         </div>
-    );
+</div>
+)
+    ;
 }
 
 export default App;
