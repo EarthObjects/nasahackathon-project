@@ -131,9 +131,9 @@ export default function AppAppBar({ onToggleList }) {
               color="primary"
               variant="text"
               size="small"
-              onClick={() => onToggleList("potential_Hazardous")}
+              onClick={() => onToggleList("potential_Hazards")}
             >
-              Potential Hazardous
+              Potential Hazards
             </Button>
           </Box>
           <Box

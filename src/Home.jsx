@@ -154,7 +154,7 @@ function Home({ isListVisible, currentList }) {
     fetchData(); // Call the fetch function
   }, []); // Empty dependency array to run once on component mount
 
-  const potentialHazardous = [
+  const potentialHazards = [
     {
       primary: "Object 1",
       secondary: "203,201 km from Earth",
@@ -183,15 +183,15 @@ function Home({ isListVisible, currentList }) {
         return asteroids; // Replaced with fetched asteroids
       case "comets":
         return comets; // Replaced with fetched comets
-      case "potential_Hazardous":
-        return potentialHazardous;
+      case "potential_Hazards":
+        return potentialHazards;
       case "all":
         return [
           ...planets,
           ...asteroids,
           ...comets,
           ...moons,
-          ...potentialHazardous,
+          ...potentialHazards,
         ];
       default:
         return [];
