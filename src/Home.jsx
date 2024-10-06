@@ -15,9 +15,9 @@ function Home({ isListVisible, currentList }) {
     const theme = useTheme();
 
     const objects = [
-        { primary: 'Object 1', secondary: '203,201 km from Earth', icon: 'image' },
-        { primary: 'Object 2', secondary: '2,032,051 km from Earth', icon: 'image' },
-        { primary: 'Object 3', secondary: '2,032,214,351 km from Earth', icon: 'image' },
+        { primary: 'Earth', secondary: '203,201 km from Earth', icon: 'image' },
+        { primary: 'Mars', secondary: '2,032,051 km from Earth', icon: 'image' },
+        { primary: 'Jupiter', secondary: '2,032,214,351 km from Earth', icon: 'image' },
         { primary: 'Object 4', secondary: '2,032,214,351 km from Earth', icon: 'image' },
         { primary: 'Object 5', secondary: '2,032,214,351 km from Earth', icon: 'image' }
     ];

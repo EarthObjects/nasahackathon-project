@@ -35,7 +35,7 @@ const ListSection = ({ title, items, onViewMore, onItemClick }) => {
             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                 {(showAll ? items : items.slice(0, 4)).map((item, index) => (
                     <ListItem
-                        className="switch-camera" object-name="Earth"
+                        className="switch-camera" object-name={item.primary}
                         key={index}
                         sx={{
                             color: theme.palette.text.primary,

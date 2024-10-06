@@ -137,6 +137,7 @@ const SpaceObjects = () => {
                 const newFocus = this.getAttribute('object-name');
                 if (newFocus && planetNames.includes(newFocus)) {
                     changeFocus(options.focus, newFocus);
+
                     options.focus = newFocus;
                 }
             });
