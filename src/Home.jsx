@@ -39,6 +39,8 @@ function Home({ isListVisible, currentList }) {
         return {
           primary: asteroid.name,
           secondary: `Inclination: ${asteroid.inc}, Omega: ${asteroid.omega}`,
+          third: `Info: ${asteroid.info}`,
+          fourth: `Type: ${asteroid.type}`,
           avatar: wikipicUrl,
         };
       });
@@ -69,6 +71,8 @@ function Home({ isListVisible, currentList }) {
         return {
           primary: comet.name,
           secondary: `Inclination: ${comet.inc}, Omega: ${comet.omega}`,
+          third: `Info: ${comet.info}`,
+          fourth: `Radius: ${comet.radius}`,
           avatar: wikipicUrl,
         };
       });
@@ -99,6 +103,8 @@ function Home({ isListVisible, currentList }) {
         return {
           primary: planet.name,
           secondary: `Inclination: ${planet.inc}, Omega: ${planet.omega}`,
+          third: `Info: ${planet.info}`,
+          fourth: `Radius: ${planet.radius}`,
           avatar: wikipicUrl,
         };
       });
@@ -124,11 +130,13 @@ function Home({ isListVisible, currentList }) {
           ? `https://upload.wikimedia.org/wikipedia/commons/${moon.wikipic}`
           : "work"; // Replace with the path to your default icon
 
-        console.log("Wikipic URL:", wikipicUrl); // Log the moon name and its wikipic URL
+        //console.log("Wikipic URL:", wikipicUrl); // Log the moon name and its wikipic URL
 
         return {
           primary: moon.name,
           secondary: `Inclination: ${moon.inc}, Omega: ${moon.omega}`,
+          third: `Info: ${moon.info}`,
+          fourth: `Radius: ${moon.radius}`,
           avatar: wikipicUrl,
         };
       });
@@ -247,6 +255,10 @@ function Home({ isListVisible, currentList }) {
                 alignItems: "center",
                 height: "100%",
               }}
+<<<<<<< Updated upstream
+=======
+              theme={theme}
+>>>>>>> Stashed changes
             />
           </Animate>
         </Grid>

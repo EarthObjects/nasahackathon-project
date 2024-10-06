@@ -6,7 +6,11 @@ import WorkIcon from "@mui/icons-material/Work";
 import BeachIcon from "@mui/icons-material/BeachAccess";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 
+<<<<<<< Updated upstream
 const Detail = ({ item, onBack }) => {
+=======
+const Detail = ({ item, onBack, onPlanetOpen }) => {
+>>>>>>> Stashed changes
   const getIcon = (iconName) => {
     switch (iconName) {
       case "image":
@@ -22,6 +26,19 @@ const Detail = ({ item, onBack }) => {
     }
   };
 
+<<<<<<< Updated upstream
+=======
+  const handlePlanetOpen = () => {
+    if (onPlanetOpen) {
+      onPlanetOpen(item);
+    }
+    const event = new CustomEvent("switchCamera", {
+      detail: { planetName: item.primary },
+    });
+    window.dispatchEvent(event);
+  };
+
+>>>>>>> Stashed changes
   return (
     <Card>
       <CardContent>
@@ -44,6 +61,22 @@ const Detail = ({ item, onBack }) => {
         <Typography variant="body2" color="text.secondary">
           {item.secondary}
         </Typography>
+<<<<<<< Updated upstream
+=======
+        <Typography variant="body2" color="text.secondary">
+          {item.third}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {item.fourth}
+        </Typography>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handlePlanetOpen}
+        >
+          Open Planet
+        </Button>
+>>>>>>> Stashed changes
       </CardContent>
     </Card>
   );
