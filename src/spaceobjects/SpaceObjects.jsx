@@ -130,17 +130,6 @@ const SpaceObjects = () => {
 
         tick();
 
-        // Change focus when a button with class "switch-camera" is clicked
-        const handleSwitchCamera = (event) => {
-            if (event.target.classList.contains('switch-camera')) {
-                const newFocus = event.target.getAttribute('object-name');
-                if (newFocus && planetNames.includes(newFocus)) {
-                    changeFocus(options.focus, newFocus);
-                    options.focus = newFocus;
-                }
-            }
-        };
-
         const buttons = document.querySelectorAll(".switch-camera");
 
         // loop through each button and add a click event listener
