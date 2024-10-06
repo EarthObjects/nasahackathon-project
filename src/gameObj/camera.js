@@ -40,7 +40,7 @@ export class CameraManager {
 
   setupOverviewCamera() {
     // Specify the desired distance from the overview target (Sun)
-    const overviewDistance = 30; // Adjust this value as needed
+    const overviewDistance = 20; // Adjust this value as needed
 
     // Position the overview camera at the specified distance from the target
     const direction = new THREE.Vector3(0, 1, 1).normalize(); // Adjust the direction vector as needed
