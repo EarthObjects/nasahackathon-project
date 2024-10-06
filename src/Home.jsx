@@ -91,7 +91,7 @@ function Home({ isListVisible, currentList }) {
                 <Grid item xs={12} md={isListVisible ? 8 : 8}>
                     <Animate
                         play={isListVisible}
-                        start={{ transform: 'translateX(-25%) scale(1.5)' }}
+                        start={{ transform: 'translateX(-30%) scale(1.5)' }}
                         end={{ transform: 'translateX(0)' }}
                         duration={0.3}
                     >
