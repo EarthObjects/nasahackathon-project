@@ -33,9 +33,7 @@ function Home({ isListVisible, currentList }) {
       const formattedData = data.map((asteroid) => {
         const wikipicUrl = asteroid.wikipic
           ? `https://upload.wikimedia.org/wikipedia/commons/${asteroid.wikipic}`
-          : "work"; // Replace with the path to your default icon
-
-        console.log("Wikipic URL:", wikipicUrl); // Log the asteroid name and its wikipic URL
+          : "flare"; // Replace with the path to your default icon
 
         return {
           primary: asteroid.name,
@@ -63,9 +61,7 @@ function Home({ isListVisible, currentList }) {
       const formattedData = data.map((comet) => {
         const wikipicUrl = comet.wikipic
           ? `https://upload.wikimedia.org/wikipedia/commons/${comet.wikipic}`
-          : "beach"; // Replace with the path to your default icon
-
-        console.log("Wikipic URL:", wikipicUrl); // Log the comet name and its wikipic URL
+          : "auto"; // Replace with the path to your default icon
 
         return {
           primary: comet.name,
@@ -95,8 +91,6 @@ function Home({ isListVisible, currentList }) {
           ? `https://upload.wikimedia.org/wikipedia/commons/${planet.wikipic}`
           : "image"; // Replace with the path to your default icon
 
-        console.log("Wikipic URL:", wikipicUrl); // Log the planet name and its wikipic URL
-
         return {
           primary: planet.name,
           secondary: `Inclination: ${planet.inc}, Omega: ${planet.omega}`,
@@ -123,9 +117,7 @@ function Home({ isListVisible, currentList }) {
       const formattedData = data.map((moon) => {
         const wikipicUrl = moon.wikipic
           ? `https://upload.wikimedia.org/wikipedia/commons/${moon.wikipic}`
-          : "work"; // Replace with the path to your default icon
-
-        console.log("Wikipic URL:", wikipicUrl); // Log the moon name and its wikipic URL
+          : 'moon'; // Replace with the path to your default icon
 
         return {
           primary: moon.name,
@@ -158,14 +150,14 @@ function Home({ isListVisible, currentList }) {
     {
       primary: "Object 1",
       secondary: "203,201 km from Earth",
-      icon: "warning",
+      avatar: "warning",
     },
     {
       primary: "Asteroid 1",
       secondary: "203,201 km from Earth",
-      icon: "warning",
+      avatar: "warning",
     },
-    { primary: "Comet 1", secondary: "203,201 km from Earth", icon: "warning" },
+    { primary: "Comet 1", secondary: "203,201 km from Earth", avatar: "warning" },
   ];
 
   // Get list items dynamically based on the current view

@@ -10,11 +10,13 @@ import {
   Button,
 } from "@mui/material";
 import ImageIcon from "@mui/icons-material/Image";
-import WorkIcon from "@mui/icons-material/Work";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import Brightness3Icon from '@mui/icons-material/Brightness3';
 
 import { useTheme } from "@mui/material/styles";
+import FlareIcon from "@mui/icons-material/Flare";
 
 const ListSection = ({ title, items, onViewMore, onItemClick }) => {
   const [showAll, setShowAll] = React.useState(false);
@@ -32,8 +34,9 @@ const ListSection = ({ title, items, onViewMore, onItemClick }) => {
 
   const iconMap = {
     image: <ImageIcon />,
-    work: <WorkIcon />,
-    beach: <BeachAccessIcon />,
+    flare: <FlareIcon />,
+    auto: <AutoAwesomeIcon />,
+    moon: <Brightness3Icon/>,
     warning: <WarningAmberIcon />,
   };
 
@@ -65,7 +68,7 @@ const ListSection = ({ title, items, onViewMore, onItemClick }) => {
           >
             <ListItemAvatar>
               {/* Use the icon URL for the Avatar */}
-              {item.avatar === "work" || item.avatar === "beach" ? (
+              {item.avatar === "flare" || item.avatar === "auto" || item.avatar === "warning" || item.avatar === "moon" ? (
                 <Avatar>{iconMap[item.avatar]}</Avatar>
               ) : (
                 <Avatar src={item.avatar} alt={item.primary} />
