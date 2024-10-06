@@ -38,6 +38,8 @@ function Home({ isListVisible, currentList }) {
         return {
           primary: asteroid.name,
           secondary: `Inclination: ${asteroid.inc}, Omega: ${asteroid.omega}`,
+          third: `Info: ${asteroid.info}`,
+          fourth: `Type: ${asteroid.type}`,
           avatar: wikipicUrl,
         };
       });
@@ -66,6 +68,8 @@ function Home({ isListVisible, currentList }) {
         return {
           primary: comet.name,
           secondary: `Inclination: ${comet.inc}, Omega: ${comet.omega}`,
+          third: `Info: ${comet.info}`,
+          fourth: `Radius: ${comet.radius}`,
           avatar: wikipicUrl,
         };
       });
@@ -94,6 +98,8 @@ function Home({ isListVisible, currentList }) {
         return {
           primary: planet.name,
           secondary: `Inclination: ${planet.inc}, Omega: ${planet.omega}`,
+          third: `Info: ${planet.info}`,
+          fourth: `Radius: ${planet.radius}`,
           avatar: wikipicUrl,
         };
       });
@@ -117,11 +123,13 @@ function Home({ isListVisible, currentList }) {
       const formattedData = data.map((moon) => {
         const wikipicUrl = moon.wikipic
           ? `https://upload.wikimedia.org/wikipedia/commons/${moon.wikipic}`
-          : 'moon'; // Replace with the path to your default icon
+          : "moon"; // Replace with the path to your default icon
 
         return {
           primary: moon.name,
           secondary: `Inclination: ${moon.inc}, Omega: ${moon.omega}`,
+          third: `Info: ${moon.info}`,
+          fourth: `Radius: ${moon.radius}`,
           avatar: wikipicUrl,
         };
       });
@@ -157,7 +165,11 @@ function Home({ isListVisible, currentList }) {
       secondary: "203,201 km from Earth",
       avatar: "warning",
     },
-    { primary: "Comet 1", secondary: "203,201 km from Earth", avatar: "warning" },
+    {
+      primary: "Comet 1",
+      secondary: "203,201 km from Earth",
+      avatar: "warning",
+    },
   ];
 
   // Get list items dynamically based on the current view
@@ -240,7 +252,8 @@ function Home({ isListVisible, currentList }) {
                 alignItems: "center",
                 height: "100%",
               }}
-            theme={theme} />
+              theme={theme}
+            />
           </Animate>
         </Grid>
       </Grid>
