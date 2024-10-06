@@ -76,9 +76,23 @@
       "bump": "./textures/moon-bump.jpg"
     },
     "labels": [
-      { "name": "Apollo 11", "type": "landing", "y": 0.36, "z": 0.05 },
-      { "name": "Tycho Crater", "y": -0.18, "z": -0.64 },
-      { "name": "Yutu-2", "type": "rover", "y": 3.06, "z": 0.67 }
+      {
+        "name": "Apollo 11",
+        "type": "landing",
+        "y": 0.36,
+        "z": 0.05
+      },
+      {
+        "name": "Tycho Crater",
+        "y": -0.18,
+        "z": -0.64
+      },
+      {
+        "name": "Yutu-2",
+        "type": "rover",
+        "y": 3.06,
+        "z": 0.67
+      }
     ]
   },
   {
@@ -96,11 +110,35 @@
       "bump": "./textures/mars-bump.jpg"
     },
     "labels": [
-      { "name": "Olympus Mons", "type": "mountain", "y": 0.59, "z": 0.52 },
-      { "name": "Tharsis Montes", "type": "mountain", "y": 1.13, "z": 0.28 },
-      { "name": "Valles Marineris", "y": 1.6, "z": 1.75 },
-      { "name": "Perseverance", "type": "rover", "y": -1.96, "z": -0.87 },
-      { "name": "Curiosity", "type": "rover", "y": -0.8, "z": -0.1 }
+      {
+        "name": "Olympus Mons",
+        "type": "mountain",
+        "y": 0.59,
+        "z": 0.52
+      },
+      {
+        "name": "Tharsis Montes",
+        "type": "mountain",
+        "y": 1.13,
+        "z": 0.28
+      },
+      {
+        "name": "Valles Marineris",
+        "y": 1.6,
+        "z": 1.75
+      },
+      {
+        "name": "Perseverance",
+        "type": "rover",
+        "y": -1.96,
+        "z": -0.87
+      },
+      {
+        "name": "Curiosity",
+        "type": "rover",
+        "y": -0.8,
+        "z": -0.1
+      }
     ]
   },
   {
@@ -116,7 +154,13 @@
     "textures": {
       "map": "./textures/jupiter.jpg"
     },
-    "labels": [{ "name": "Great Red Spot", "y": -0.84, "z": -0.41 }]
+    "labels": [
+      {
+        "name": "Great Red Spot",
+        "y": -0.84,
+        "z": -0.41
+      }
+    ]
   },
   {
     "name": "Saturn",
@@ -131,7 +175,13 @@
     "textures": {
       "map": "./textures/saturn.jpg"
     },
-    "labels": [{ "name": "Saturn's Hexagon", "y": 0, "z": 1.57 }]
+    "labels": [
+      {
+        "name": "Saturn's Hexagon",
+        "y": 0,
+        "z": 1.57
+      }
+    ]
   },
   {
     "name": "Uranus",
@@ -160,7 +210,13 @@
     "textures": {
       "map": "./textures/neptune.jpg"
     },
-    "labels": [{ "name": "Great Dark Spot", "y": 0.21, "z": -0.18 }]
+    "labels": [
+      {
+        "name": "Great Dark Spot",
+        "y": 0.21,
+        "z": -0.18
+      }
+    ]
   },
   {
     "name": "Rings of Saturn",
@@ -258,6 +314,2871 @@
     "traversable": false,
     "textures": {
       "map": "./textures/triton.jpg"
+    }
+  },
+  {
+    "name": "Orcus",
+    "radius": 968,
+    "distance": 4205,
+    "period": 7145,
+    "daylength": 1344.1142405364217,
+    "height": -28,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2747238779414939,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Ryugu",
+    "radius": 1770,
+    "distance": 4528,
+    "period": 6091,
+    "daylength": 1303.3545862307665,
+    "height": 21,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4151076815321888,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Dziewanna",
+    "radius": 1660,
+    "distance": 5595,
+    "period": 8274,
+    "daylength": 1511.704314059047,
+    "height": -16,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5565919619377467,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Urania",
+    "radius": 1013,
+    "distance": 6814,
+    "period": 6827,
+    "daylength": 1497.3843914028794,
+    "height": -85,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.38568519207704866,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Fides",
+    "radius": 1159,
+    "distance": 4117,
+    "period": 8227,
+    "daylength": 1165.8594345054532,
+    "height": -30,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.018544110548643022,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Hekate",
+    "radius": 1623,
+    "distance": 2409,
+    "period": 6136,
+    "daylength": 1112.8337980937536,
+    "height": -39,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.30423069414412063,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Hera",
+    "radius": 1598,
+    "distance": 4759,
+    "period": 8647,
+    "daylength": 1470.9472173835006,
+    "height": -80,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5862279256469917,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Juewa",
+    "radius": 1737,
+    "distance": 6632,
+    "period": 5765,
+    "daylength": 1019.05627332413,
+    "height": 62,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.44367406183596114,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Lucina",
+    "radius": 1260,
+    "distance": 3224,
+    "period": 9888,
+    "daylength": 1379.1506749909145,
+    "height": -12,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.044182241393945,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Medusa",
+    "radius": 1591,
+    "distance": 4552,
+    "period": 6817,
+    "daylength": 1500.818998080624,
+    "height": -74,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8170105643601175,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Laurentia",
+    "radius": 1128,
+    "distance": 1088,
+    "period": 6873,
+    "daylength": 1188.156991831235,
+    "height": 38,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3821390687481988,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Eva",
+    "radius": 1563,
+    "distance": 1095,
+    "period": 6692,
+    "daylength": 1687.5388550304256,
+    "height": -7,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4335594116747292,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Elsa",
+    "radius": 1063,
+    "distance": 1415,
+    "period": 9932,
+    "daylength": 1507.4173152175135,
+    "height": 3,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.32019176206527966,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Philosophia",
+    "radius": 1594,
+    "distance": 3131,
+    "period": 8259,
+    "daylength": 1940.3187852410165,
+    "height": -32,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5996016140304731,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Barbara",
+    "radius": 1441,
+    "distance": 3541,
+    "period": 6991,
+    "daylength": 1778.3214470520072,
+    "height": 29,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.021845462163355145,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Emma",
+    "radius": 994,
+    "distance": 4771,
+    "period": 8147,
+    "daylength": 1790.3439665132494,
+    "height": 3,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9422028585836787,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Roxane",
+    "radius": 1537,
+    "distance": 5793,
+    "period": 9780,
+    "daylength": 1901.3636028654248,
+    "height": 99,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.1383065195150731,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Ornamenta",
+    "radius": 1734,
+    "distance": 4119,
+    "period": 7617,
+    "daylength": 1304.1442616464253,
+    "height": -50,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.18002683602667924,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Apollonia",
+    "radius": 1630,
+    "distance": 1887,
+    "period": 8976,
+    "daylength": 1093.0666410516355,
+    "height": -23,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9266841973821097,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Campania",
+    "radius": 1073,
+    "distance": 5915,
+    "period": 6725,
+    "daylength": 1680.068807382183,
+    "height": 11,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.1983643079581372,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Ducrosa",
+    "radius": 1670,
+    "distance": 6948,
+    "period": 5445,
+    "daylength": 1535.241818782111,
+    "height": -43,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6597267125976297,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Erna",
+    "radius": 1113,
+    "distance": 2407,
+    "period": 5792,
+    "daylength": 1505.3678484905945,
+    "height": -98,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.18457664629397152,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Gratia",
+    "radius": 1278,
+    "distance": 3970,
+    "period": 7679,
+    "daylength": 1967.2154414041963,
+    "height": 89,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4043969914274538,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Galene",
+    "radius": 980,
+    "distance": 1730,
+    "period": 9419,
+    "daylength": 1890.2612995893337,
+    "height": 12,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.30775173700346703,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Gyptis",
+    "radius": 1500,
+    "distance": 6455,
+    "period": 7278,
+    "daylength": 1759.990492694356,
+    "height": 52,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6898787915826112,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Edna",
+    "radius": 971,
+    "distance": 5691,
+    "period": 8853,
+    "daylength": 1337.22926305056,
+    "height": -50,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.43726437212387526,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Tisiphone",
+    "radius": 1179,
+    "distance": 6512,
+    "period": 9065,
+    "daylength": 1733.916691162026,
+    "height": -49,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.08335017257313382,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Virtus",
+    "radius": 834,
+    "distance": 1783,
+    "period": 8606,
+    "daylength": 1678.0491300790782,
+    "height": 98,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.459686080387966,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Halawe",
+    "radius": 1273,
+    "distance": 1034,
+    "period": 9173,
+    "daylength": 1719.960935545665,
+    "height": 89,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3757075335514337,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Pauly",
+    "radius": 1372,
+    "distance": 2826,
+    "period": 9818,
+    "daylength": 1167.5153740370356,
+    "height": 28,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7973499032825977,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Deborah",
+    "radius": 775,
+    "distance": 2911,
+    "period": 9743,
+    "daylength": 1012.9474372528358,
+    "height": 91,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3868314942218004,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Charlotte",
+    "radius": 1684,
+    "distance": 6436,
+    "period": 5698,
+    "daylength": 1002.3897631615897,
+    "height": 6,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8945293463075392,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Jessonda",
+    "radius": 1223,
+    "distance": 3569,
+    "period": 7141,
+    "daylength": 1121.4517223321984,
+    "height": -13,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8905269166518992,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Sigelinde",
+    "radius": 1068,
+    "distance": 1080,
+    "period": 7615,
+    "daylength": 1881.8431216147537,
+    "height": -17,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.03255123169630514,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Sidonia",
+    "radius": 1143,
+    "distance": 5722,
+    "period": 6755,
+    "daylength": 1994.233656905089,
+    "height": -17,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8712407411302391,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Bandusia",
+    "radius": 1571,
+    "distance": 1162,
+    "period": 6346,
+    "daylength": 1533.329828122332,
+    "height": -78,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5128263686697938,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Elly",
+    "radius": 1404,
+    "distance": 1825,
+    "period": 6831,
+    "daylength": 1524.7486998445347,
+    "height": 57,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.715860193949072,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Notburga",
+    "radius": 1781,
+    "distance": 6093,
+    "period": 5604,
+    "daylength": 1198.0543845233415,
+    "height": -16,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.0632728162221462,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Charis",
+    "radius": 1765,
+    "distance": 3300,
+    "period": 7635,
+    "daylength": 1462.58819491124,
+    "height": 94,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7967315251611792,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Zerbinetta",
+    "radius": 1784,
+    "distance": 1792,
+    "period": 8925,
+    "daylength": 1167.9171016708626,
+    "height": 11,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.25592514037431746,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Galilea",
+    "radius": 1364,
+    "distance": 6254,
+    "period": 5444,
+    "daylength": 1797.1382957072417,
+    "height": -16,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6540786660371856,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Alauda",
+    "radius": 850,
+    "distance": 6608,
+    "period": 5726,
+    "daylength": 1105.5017260774885,
+    "height": 56,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9626093150916848,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Alagasta",
+    "radius": 761,
+    "distance": 5816,
+    "period": 7883,
+    "daylength": 1473.3821040368448,
+    "height": -92,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.1481491882927729,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Lumiere",
+    "radius": 1421,
+    "distance": 6542,
+    "period": 6532,
+    "daylength": 1832.4211323698173,
+    "height": 26,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3730404264708794,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Moskva",
+    "radius": 856,
+    "distance": 2169,
+    "period": 7881,
+    "daylength": 1788.0561240675606,
+    "height": -1,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.006958343338345885,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Picka",
+    "radius": 1290,
+    "distance": 5631,
+    "period": 9054,
+    "daylength": 1322.0082620370245,
+    "height": -87,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.43432356474772993,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Karin",
+    "radius": 1452,
+    "distance": 5353,
+    "period": 8133,
+    "daylength": 1135.5777173525853,
+    "height": -9,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.320309262158473,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Kerstin",
+    "radius": 939,
+    "distance": 2865,
+    "period": 6966,
+    "daylength": 1963.3173734580648,
+    "height": 5,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6755877736020554,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Newcombia",
+    "radius": 1692,
+    "distance": 5343,
+    "period": 5174,
+    "daylength": 1566.4129990181916,
+    "height": 92,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8390120010232388,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Rosalinde",
+    "radius": 1092,
+    "distance": 3682,
+    "period": 9330,
+    "daylength": 1588.3598528214404,
+    "height": 40,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2750393406621753,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Probitas",
+    "radius": 1603,
+    "distance": 1794,
+    "period": 7867,
+    "daylength": 1262.9086866440725,
+    "height": -87,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9734253094304909,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Lyka",
+    "radius": 1530,
+    "distance": 4978,
+    "period": 7871,
+    "daylength": 1649.3475122060204,
+    "height": -31,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.27919095937545424,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Thuringia",
+    "radius": 1426,
+    "distance": 6120,
+    "period": 7062,
+    "daylength": 1047.776130829053,
+    "height": 74,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9499921505703377,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Chlosinde",
+    "radius": 1676,
+    "distance": 5740,
+    "period": 5162,
+    "daylength": 1179.3279963024736,
+    "height": -36,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.019935427985206533,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Leocadia",
+    "radius": 901,
+    "distance": 6500,
+    "period": 7596,
+    "daylength": 1576.7295838775244,
+    "height": -3,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5387030039890891,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "Litva",
+    "radius": 1538,
+    "distance": 4942,
+    "period": 5157,
+    "daylength": 1566.7877566316336,
+    "height": 93,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9333720737467619,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "2002 TC302",
+    "radius": 1643,
+    "distance": 3192,
+    "period": 8049,
+    "daylength": 1519.6880993285708,
+    "height": 49,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3494902629281358,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "2014 EZ51",
+    "radius": 1624,
+    "distance": 3939,
+    "period": 8581,
+    "daylength": 1026.8529958085744,
+    "height": -42,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.890550142641245,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/asteroid.jpg"
+    }
+  },
+  {
+    "name": "1P/Halley",
+    "radius": 1514,
+    "distance": 6446,
+    "period": 7462,
+    "daylength": 1383.0853916103747,
+    "height": 41,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.24023083722043848,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "2P/Encke",
+    "radius": 1434,
+    "distance": 6303,
+    "period": 7125,
+    "daylength": 1877.1584574076255,
+    "height": 4,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9105779247108342,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "10P/Tempel 2",
+    "radius": 1398,
+    "distance": 3797,
+    "period": 7080,
+    "daylength": 1320.8910959533573,
+    "height": 43,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5301426917506931,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "11P/Tempel-Swift-LINEAR",
+    "radius": 1282,
+    "distance": 1572,
+    "period": 8978,
+    "daylength": 1035.6007926740658,
+    "height": -93,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7343133305948323,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "12P/Pons-Brooks",
+    "radius": 1445,
+    "distance": 6766,
+    "period": 9593,
+    "daylength": 1104.8877847444705,
+    "height": 8,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9656665287684079,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "14P/Wolf",
+    "radius": 1655,
+    "distance": 2874,
+    "period": 7175,
+    "daylength": 1479.573924789814,
+    "height": 52,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2633660487837053,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "15P/Finlay",
+    "radius": 1224,
+    "distance": 6261,
+    "period": 8065,
+    "daylength": 1574.4969668127428,
+    "height": 13,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6644488024732306,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "17P/Holmes",
+    "radius": 908,
+    "distance": 3772,
+    "period": 8879,
+    "daylength": 1686.0091513795396,
+    "height": -87,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.28132925004566467,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "19P/Borrelly",
+    "radius": 1330,
+    "distance": 5390,
+    "period": 7101,
+    "daylength": 1406.0795038796152,
+    "height": 36,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3206896264243365,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "21P/Giacobini-Zinner",
+    "radius": 780,
+    "distance": 6666,
+    "period": 5914,
+    "daylength": 1166.927222877787,
+    "height": -12,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.006641645500153781,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "22P/Kopff",
+    "radius": 1705,
+    "distance": 3496,
+    "period": 6206,
+    "daylength": 1922.48895846008,
+    "height": -79,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5766970019850529,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "24P/Schaumasse",
+    "radius": 1168,
+    "distance": 3724,
+    "period": 9502,
+    "daylength": 1674.2760817742299,
+    "height": 50,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8384776226604307,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "26P/Grigg-Skjellerup",
+    "radius": 1690,
+    "distance": 2363,
+    "period": 8589,
+    "daylength": 1127.9432438317097,
+    "height": 82,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.26923884602147397,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "27P/Crommelin",
+    "radius": 1432,
+    "distance": 3801,
+    "period": 6207,
+    "daylength": 1621.2805672237828,
+    "height": 53,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.37680586060376275,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "29P/Schwassmann-Wachmann",
+    "radius": 1305,
+    "distance": 4918,
+    "period": 6969,
+    "daylength": 1066.8470678422957,
+    "height": -64,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.938828399738263,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "30P/Reinmuth",
+    "radius": 1407,
+    "distance": 2654,
+    "period": 7679,
+    "daylength": 1126.5931205744657,
+    "height": 17,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5409153663442203,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "32P/Comas Sola",
+    "radius": 1550,
+    "distance": 2189,
+    "period": 9922,
+    "daylength": 1668.0633502297367,
+    "height": -49,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5495606931311837,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "33P/Daniel",
+    "radius": 805,
+    "distance": 5921,
+    "period": 7910,
+    "daylength": 1652.4374122963159,
+    "height": 10,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.12688097861045822,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "35P/Herschel-Rigollet",
+    "radius": 875,
+    "distance": 6006,
+    "period": 7502,
+    "daylength": 1576.1383628564552,
+    "height": 81,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.0925594785493663,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "36P/Whipple",
+    "radius": 1105,
+    "distance": 2388,
+    "period": 5944,
+    "daylength": 1280.0649549790191,
+    "height": 22,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.14930125021048346,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "38P/Stephan-Oterma",
+    "radius": 1071,
+    "distance": 2294,
+    "period": 5766,
+    "daylength": 1415.0832715341485,
+    "height": -48,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.24135511024936163,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "39P/Oterma",
+    "radius": 1204,
+    "distance": 4081,
+    "period": 5322,
+    "daylength": 1479.2827331315343,
+    "height": 24,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5385775058775992,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "43P/Wolf-Harrington",
+    "radius": 1736,
+    "distance": 2607,
+    "period": 5928,
+    "daylength": 1118.7511081769187,
+    "height": -18,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.824063702731138,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "44P/Reinmuth",
+    "radius": 1234,
+    "distance": 3419,
+    "period": 8134,
+    "daylength": 1433.0394082648186,
+    "height": -34,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.04221818332998217,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "45P/Honda-Mrkos-Pajdusakova",
+    "radius": 1157,
+    "distance": 1056,
+    "period": 7566,
+    "daylength": 1059.5071745403432,
+    "height": 51,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.735019291314507,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "46P/Wirtanen",
+    "radius": 1020,
+    "distance": 4435,
+    "period": 5821,
+    "daylength": 1179.863701087398,
+    "height": 20,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5486466324308749,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "47P/Ashbrook-Jackson",
+    "radius": 1475,
+    "distance": 4202,
+    "period": 6535,
+    "daylength": 1758.8218852905138,
+    "height": 4,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.06607658776075243,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "48P/Johnson",
+    "radius": 1391,
+    "distance": 5201,
+    "period": 8424,
+    "daylength": 1510.7101553758494,
+    "height": -37,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2633183633754128,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "49P/Arend-Rigaux",
+    "radius": 1602,
+    "distance": 4356,
+    "period": 9781,
+    "daylength": 1660.3238318699127,
+    "height": -4,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9083596629077481,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "51P/Harrington-A",
+    "radius": 1304,
+    "distance": 4160,
+    "period": 8932,
+    "daylength": 1606.7337630085112,
+    "height": 92,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8257923871154111,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "51P/Harrington-D",
+    "radius": 1558,
+    "distance": 1415,
+    "period": 9558,
+    "daylength": 1785.1311131687357,
+    "height": 1,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2462190255499288,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "52P/Harrington-Abell",
+    "radius": 902,
+    "distance": 1752,
+    "period": 8539,
+    "daylength": 1317.3151270006545,
+    "height": 75,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.02466004017325807,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "53P/Van Biesbroeck",
+    "radius": 1043,
+    "distance": 1204,
+    "period": 5909,
+    "daylength": 1620.2568093734012,
+    "height": 98,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2371872991738203,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "54P/de Vico-Swift-NEAT",
+    "radius": 1120,
+    "distance": 6566,
+    "period": 9041,
+    "daylength": 1744.8679775317669,
+    "height": -67,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.45814906535943256,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "57P/duToit-Neujmin-Delporte",
+    "radius": 1222,
+    "distance": 2438,
+    "period": 6646,
+    "daylength": 1740.5980275615184,
+    "height": -37,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2887572357302506,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "58P/Jackson-Neujmin",
+    "radius": 925,
+    "distance": 3205,
+    "period": 5246,
+    "daylength": 1219.955638161834,
+    "height": -99,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5568926822329807,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "60P/Tsuchinshan",
+    "radius": 883,
+    "distance": 1757,
+    "period": 8384,
+    "daylength": 1031.7552395206078,
+    "height": -63,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8322077914923868,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "61P/Shajn-Schaldach",
+    "radius": 1330,
+    "distance": 4962,
+    "period": 5878,
+    "daylength": 1969.47743570505,
+    "height": -71,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6196419079266108,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "62P/Tsuchinshan",
+    "radius": 1000,
+    "distance": 1261,
+    "period": 9557,
+    "daylength": 1317.0986999209147,
+    "height": -19,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.17877578066299715,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "64P/Swift-Gehrels",
+    "radius": 872,
+    "distance": 1080,
+    "period": 5192,
+    "daylength": 1754.4673203889354,
+    "height": 30,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.0437034856778582,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "65P/Gunn",
+    "radius": 970,
+    "distance": 2373,
+    "period": 9703,
+    "daylength": 1484.4451474566856,
+    "height": -37,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.17873397393843637,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "67P/Churyumov-Gerasimenko",
+    "radius": 985,
+    "distance": 3239,
+    "period": 9493,
+    "daylength": 1525.9529050918977,
+    "height": 99,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.29740989095660497,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "69P/Taylor",
+    "radius": 1462,
+    "distance": 5856,
+    "period": 8645,
+    "daylength": 1679.3507798640585,
+    "height": 60,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2339848419839009,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "72P/Denning-Fujikawa",
+    "radius": 1082,
+    "distance": 2112,
+    "period": 8585,
+    "daylength": 1984.2964105503304,
+    "height": -55,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3286620780713009,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "73P/Schwassmann-Wachmann",
+    "radius": 1140,
+    "distance": 2329,
+    "period": 7581,
+    "daylength": 1992.6147710230252,
+    "height": 56,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4379582474211918,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "74P/Smirnova-Chernykh",
+    "radius": 1406,
+    "distance": 2182,
+    "period": 7048,
+    "daylength": 1799.8451945989766,
+    "height": -3,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5669532604857027,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "76P/West-Kohoutek-Ikemura",
+    "radius": 1281,
+    "distance": 4080,
+    "period": 6355,
+    "daylength": 1621.2831038670215,
+    "height": -96,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.05421531684508196,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "78P/Gehrels",
+    "radius": 1184,
+    "distance": 6400,
+    "period": 8109,
+    "daylength": 1854.6845027564862,
+    "height": 91,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.040197434262370546,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "80P/Peters-Hartley",
+    "radius": 1166,
+    "distance": 2310,
+    "period": 8304,
+    "daylength": 1421.6223731885773,
+    "height": -56,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7259399060082798,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "81P/Wild",
+    "radius": 1403,
+    "distance": 5170,
+    "period": 5987,
+    "daylength": 1858.923152702906,
+    "height": -8,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.06496902748598199,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "82P/Gehrels",
+    "radius": 1166,
+    "distance": 1519,
+    "period": 5582,
+    "daylength": 1765.8165075779482,
+    "height": -100,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3680265015611046,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "84P/Giclas",
+    "radius": 1459,
+    "distance": 6353,
+    "period": 5324,
+    "daylength": 1967.401447893872,
+    "height": 73,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4460175721832631,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "85P/Boethin",
+    "radius": 1499,
+    "distance": 5372,
+    "period": 5515,
+    "daylength": 1986.5280106764958,
+    "height": 91,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8744796336166688,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "86P/Wild",
+    "radius": 1754,
+    "distance": 1649,
+    "period": 5589,
+    "daylength": 1025.1348987937454,
+    "height": 22,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.44387039435694287,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "87P/Bus",
+    "radius": 918,
+    "distance": 2761,
+    "period": 8356,
+    "daylength": 1604.2986085351918,
+    "height": 33,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.26600145859409297,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "88P/Howell",
+    "radius": 1321,
+    "distance": 5023,
+    "period": 8365,
+    "daylength": 1810.9183232267758,
+    "height": -41,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.13527503839748933,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "89P/Russell",
+    "radius": 1344,
+    "distance": 3386,
+    "period": 7335,
+    "daylength": 1659.0154590387287,
+    "height": 71,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.002693594930750942,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "90P/Gehrels",
+    "radius": 1037,
+    "distance": 3959,
+    "period": 9675,
+    "daylength": 1697.548096050656,
+    "height": 49,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.1624020270384523,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "91P/Russell",
+    "radius": 1115,
+    "distance": 2560,
+    "period": 6685,
+    "daylength": 1647.6653738090008,
+    "height": 59,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.1483463733430579,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "92P/Sanguin",
+    "radius": 1696,
+    "distance": 3660,
+    "period": 9689,
+    "daylength": 1643.7230620003793,
+    "height": 37,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.796637763132779,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "96P/Machholz",
+    "radius": 1404,
+    "distance": 1595,
+    "period": 5210,
+    "daylength": 1547.5918312007598,
+    "height": -92,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.16780714988309087,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "97P/Metcalf-Brewington",
+    "radius": 987,
+    "distance": 2360,
+    "period": 9651,
+    "daylength": 1306.3173142839287,
+    "height": -11,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.29671688352441505,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "98P/Takamizawa",
+    "radius": 1728,
+    "distance": 4304,
+    "period": 8772,
+    "daylength": 1459.6844882085707,
+    "height": 92,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8020240708300971,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "99P/Kowal",
+    "radius": 832,
+    "distance": 6049,
+    "period": 9079,
+    "daylength": 1602.0230072082527,
+    "height": -52,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.586730888235837,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "100P/Hartley",
+    "radius": 1537,
+    "distance": 5741,
+    "period": 7363,
+    "daylength": 1243.9337046219482,
+    "height": -100,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6958455629065508,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/comet.jpg"
+    }
+  },
+  {
+    "name": "Dysnomia",
+    "radius": 1106,
+    "distance": 3949,
+    "period": 8664,
+    "daylength": 1821.0811551727365,
+    "height": -37,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8844924443224061,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Petit-Prince",
+    "radius": 1773,
+    "distance": 1697,
+    "period": 7664,
+    "daylength": 1457.3423716037241,
+    "height": 27,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4785831632182048,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2019 (31) 1",
+    "radius": 1483,
+    "distance": 2534,
+    "period": 9487,
+    "daylength": 1796.4913896572698,
+    "height": 57,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5772036410890159,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Hi'iaka",
+    "radius": 1625,
+    "distance": 4353,
+    "period": 6383,
+    "daylength": 1910.6525840272554,
+    "height": 23,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.16654353980163839,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2002 (121) 1",
+    "radius": 1119,
+    "distance": 1084,
+    "period": 8012,
+    "daylength": 1440.9157789187088,
+    "height": 1,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9442857656159616,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2012 (38628) 1",
+    "radius": 825,
+    "distance": 1434,
+    "period": 8058,
+    "daylength": 1946.1915504684816,
+    "height": 68,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3738848477208101,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Dactyl",
+    "radius": 1511,
+    "distance": 6621,
+    "period": 9543,
+    "daylength": 1420.1307862870594,
+    "height": 96,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.1726036342292092,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Arche",
+    "radius": 1215,
+    "distance": 6621,
+    "period": 7206,
+    "daylength": 1650.7856182206458,
+    "height": -4,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7913856315512504,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Autonoe",
+    "radius": 1118,
+    "distance": 4843,
+    "period": 7459,
+    "daylength": 1401.4503817804355,
+    "height": -62,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2804200001541888,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Chaldene",
+    "radius": 1782,
+    "distance": 1777,
+    "period": 7754,
+    "daylength": 1101.6684954192826,
+    "height": -37,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9366795822284574,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Dia",
+    "radius": 1785,
+    "distance": 1409,
+    "period": 8054,
+    "daylength": 1516.3639934042485,
+    "height": -5,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7504938878080882,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Elara",
+    "radius": 1689,
+    "distance": 4256,
+    "period": 7977,
+    "daylength": 1508.118558117998,
+    "height": 30,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5884303128688687,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Eukelade",
+    "radius": 1793,
+    "distance": 6966,
+    "period": 5739,
+    "daylength": 1697.649548708572,
+    "height": 19,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7960165193274945,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Helike",
+    "radius": 1164,
+    "distance": 6806,
+    "period": 7098,
+    "daylength": 1636.3001656175763,
+    "height": 38,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.41406490890242076,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Himalia",
+    "radius": 1460,
+    "distance": 3760,
+    "period": 7066,
+    "daylength": 1428.891141945482,
+    "height": 2,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.22591592383010928,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Kale",
+    "radius": 872,
+    "distance": 2020,
+    "period": 5408,
+    "daylength": 1726.7890251139584,
+    "height": 75,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8853703875867537,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Kore",
+    "radius": 1781,
+    "distance": 5895,
+    "period": 6261,
+    "daylength": 1652.315582127112,
+    "height": 53,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8824086444081845,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2003 J18",
+    "radius": 780,
+    "distance": 6445,
+    "period": 7858,
+    "daylength": 1078.288826377318,
+    "height": 73,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.06155236730525737,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2003 J19",
+    "radius": 1336,
+    "distance": 3858,
+    "period": 5612,
+    "daylength": 1598.0305453731291,
+    "height": 73,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7569160607392846,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2003 J2",
+    "radius": 1185,
+    "distance": 4346,
+    "period": 8637,
+    "daylength": 1734.300274861995,
+    "height": -100,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4868533995848213,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2003 J9",
+    "radius": 1410,
+    "distance": 6273,
+    "period": 8236,
+    "daylength": 1461.0386418713074,
+    "height": 12,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7109408554762874,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2010 J2",
+    "radius": 1448,
+    "distance": 1421,
+    "period": 7028,
+    "daylength": 1716.030447447835,
+    "height": 19,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6709276624769913,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Sponde",
+    "radius": 916,
+    "distance": 1279,
+    "period": 8826,
+    "daylength": 1036.9780291689897,
+    "height": -51,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8562124853824535,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Themisto",
+    "radius": 1434,
+    "distance": 3822,
+    "period": 7024,
+    "daylength": 1200.1818761950249,
+    "height": 34,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.04560469845228876,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Adrastea",
+    "radius": 1455,
+    "distance": 6365,
+    "period": 9082,
+    "daylength": 1406.8110259034654,
+    "height": -45,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.45803808218702824,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Ganymede",
+    "radius": 1287,
+    "distance": 6205,
+    "period": 5064,
+    "daylength": 1267.5689178878704,
+    "height": 27,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.03778634536602454,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Io",
+    "radius": 1083,
+    "distance": 3688,
+    "period": 5621,
+    "daylength": 1741.721779365052,
+    "height": 77,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5357951991221009,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Thebe",
+    "radius": 1095,
+    "distance": 3114,
+    "period": 9081,
+    "daylength": 1652.9925258053427,
+    "height": -4,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6235173928024018,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Linus",
+    "radius": 1099,
+    "distance": 4609,
+    "period": 6046,
+    "daylength": 1416.3463582708,
+    "height": -49,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.24790786492027772,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2015 (136472) 1",
+    "radius": 890,
+    "distance": 4009,
+    "period": 5532,
+    "daylength": 1854.6057951933276,
+    "height": 6,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8785605471971447,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Halimede",
+    "radius": 1438,
+    "distance": 1993,
+    "period": 7407,
+    "daylength": 1219.757900903136,
+    "height": 23,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.08509884356091113,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Galatea",
+    "radius": 1660,
+    "distance": 1523,
+    "period": 6957,
+    "daylength": 1043.380673770296,
+    "height": 69,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6654383903497331,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Larissa",
+    "radius": 1646,
+    "distance": 5224,
+    "period": 8504,
+    "daylength": 1530.6056342918869,
+    "height": -86,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.10679164370180805,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Naiad",
+    "radius": 1527,
+    "distance": 5863,
+    "period": 6346,
+    "daylength": 1187.9567386149706,
+    "height": 30,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.567921082688926,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Nereid",
+    "radius": 830,
+    "distance": 2327,
+    "period": 8701,
+    "daylength": 1702.8203437201141,
+    "height": 2,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.17379070150690923,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2004N1",
+    "radius": 1371,
+    "distance": 6797,
+    "period": 7150,
+    "daylength": 1419.371245427222,
+    "height": -31,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2842850914163719,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Hydra",
+    "radius": 1304,
+    "distance": 6011,
+    "period": 7789,
+    "daylength": 1184.1161361015465,
+    "height": -84,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4239939865929414,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Actaea",
+    "radius": 1309,
+    "distance": 5423,
+    "period": 8636,
+    "daylength": 1575.4118610522694,
+    "height": -26,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.03613886283769685,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Jarnsaxa",
+    "radius": 1488,
+    "distance": 3690,
+    "period": 6126,
+    "daylength": 1053.9921045472015,
+    "height": -86,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.005308148233716725,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Kiviuq",
+    "radius": 793,
+    "distance": 2598,
+    "period": 6519,
+    "daylength": 1199.0460095508545,
+    "height": -85,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9671962267998367,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Loge",
+    "radius": 1628,
+    "distance": 1722,
+    "period": 8274,
+    "daylength": 1803.7590850894571,
+    "height": 75,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.904785470451985,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Narvi",
+    "radius": 929,
+    "distance": 4693,
+    "period": 9961,
+    "daylength": 1151.8638388131262,
+    "height": 18,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9702747230415932,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Paaliaq",
+    "radius": 1495,
+    "distance": 4928,
+    "period": 5699,
+    "daylength": 1491.502271822129,
+    "height": 16,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8502432142035837,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2004 S12",
+    "radius": 855,
+    "distance": 5898,
+    "period": 9733,
+    "daylength": 1614.8471394926407,
+    "height": 68,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.30888363789490625,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "S/2007S3 ",
+    "radius": 1214,
+    "distance": 4911,
+    "period": 8217,
+    "daylength": 1495.975511194341,
+    "height": -19,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.10383955602221662,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Suttungr",
+    "radius": 1794,
+    "distance": 5332,
+    "period": 7845,
+    "daylength": 1956.575321079301,
+    "height": 25,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.45185161355463266,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Tarqeq",
+    "radius": 1370,
+    "distance": 6725,
+    "period": 6648,
+    "daylength": 1041.553498345257,
+    "height": 59,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.33570226760638056,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Thrymr",
+    "radius": 1633,
+    "distance": 6237,
+    "period": 7586,
+    "daylength": 1883.4428230425247,
+    "height": 5,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4935784386472427,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Aegaeon",
+    "radius": 1561,
+    "distance": 2464,
+    "period": 6415,
+    "daylength": 1731.3373346576036,
+    "height": -78,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5759084808991751,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Epimetheus",
+    "radius": 1706,
+    "distance": 2091,
+    "period": 7964,
+    "daylength": 1339.1090937379843,
+    "height": -36,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7595950671185066,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Helene",
+    "radius": 1318,
+    "distance": 1723,
+    "period": 7961,
+    "daylength": 1197.7187844619052,
+    "height": 65,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.24518172759186185,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Hyperion",
+    "radius": 919,
+    "distance": 6496,
+    "period": 7006,
+    "daylength": 1688.2023262163152,
+    "height": 24,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.08120747867125377,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Iapetus",
+    "radius": 902,
+    "distance": 3865,
+    "period": 5404,
+    "daylength": 1282.2878643761085,
+    "height": 59,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.13109567834911762,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Janus",
+    "radius": 896,
+    "distance": 1967,
+    "period": 8013,
+    "daylength": 1449.488050246479,
+    "height": -58,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.988896819365751,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Methone",
+    "radius": 1067,
+    "distance": 2922,
+    "period": 8834,
+    "daylength": 1093.0003546386008,
+    "height": 24,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.0390103904020459,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Phoebe",
+    "radius": 1698,
+    "distance": 4904,
+    "period": 7874,
+    "daylength": 1728.1574027604843,
+    "height": 19,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.8374310788636562,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Rhea",
+    "radius": 1791,
+    "distance": 4938,
+    "period": 8842,
+    "daylength": 1927.0704584862115,
+    "height": 97,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.22122287985844657,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Romulus",
+    "radius": 1510,
+    "distance": 3649,
+    "period": 5496,
+    "daylength": 1236.505949825667,
+    "height": -76,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.18513061992902402,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Margaret",
+    "radius": 976,
+    "distance": 4311,
+    "period": 9379,
+    "daylength": 1098.886383598496,
+    "height": -12,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.3285664568580322,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Prospero",
+    "radius": 1290,
+    "distance": 1343,
+    "period": 9336,
+    "daylength": 1489.5290106407786,
+    "height": -41,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.5383457151354336,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Stephano",
+    "radius": 1387,
+    "distance": 6396,
+    "period": 7488,
+    "daylength": 1432.2743439903345,
+    "height": 59,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.6967275482067697,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Trinculo",
+    "radius": 1638,
+    "distance": 5901,
+    "period": 6597,
+    "daylength": 1234.7878342030483,
+    "height": -18,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.37191962037806703,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Ariel",
+    "radius": 1508,
+    "distance": 2536,
+    "period": 9094,
+    "daylength": 1886.6290941066613,
+    "height": 40,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9048086127968465,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Umbriel",
+    "radius": 1543,
+    "distance": 4126,
+    "period": 5633,
+    "daylength": 1689.5236735096419,
+    "height": -33,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4758317050630977,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Belinda",
+    "radius": 1633,
+    "distance": 5011,
+    "period": 5493,
+    "daylength": 1502.7603551651969,
+    "height": 62,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.7293175295653491,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Cordelia",
+    "radius": 1591,
+    "distance": 6330,
+    "period": 9938,
+    "daylength": 1663.8785495634802,
+    "height": -4,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.4418840539898219,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Perdita",
+    "radius": 774,
+    "distance": 4598,
+    "period": 7994,
+    "daylength": 1566.5216747568206,
+    "height": -25,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.9687328309771642,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
+    }
+  },
+  {
+    "name": "Ilmare",
+    "radius": 1091,
+    "distance": 3407,
+    "period": 5349,
+    "daylength": 1245.5534791112182,
+    "height": -41,
+    "type": "planet",
+    "orbits": "Sun",
+    "tilt": 0.2903732709256296,
+    "traversable": true,
+    "textures": {
+      "map": "./textures/moont.jpg"
     }
   }
 ]
