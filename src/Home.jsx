@@ -7,6 +7,7 @@ import Detail from "./components/Detail.jsx";
 import {useTheme} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { CanvasComponent } from './components/Canvas.jsx';
 
 function Home({ isListVisible, currentList }) {
     const [selectedItem, setSelectedItem] = useState(null);
@@ -94,7 +95,7 @@ function Home({ isListVisible, currentList }) {
                         end={{ transform: 'translateX(0)' }}
                         duration={0.3}
                     >
-                        <img src="1006811.gif" alt="Description" style={{ width: '100%'}} />
+                        <CanvasComponent />
                     </Animate>
                 </Grid>
             </Grid>
