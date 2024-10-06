@@ -23,6 +23,7 @@ export const options = {
 const SpaceObjects = () => {
   const canvasRef = useRef(null);
   const [speed, setSpeed] = useState(options.speed); // Initialize state with the default speed
+  const [sliderValue, setSliderValue] = useState(options.speed); // Local state for slider value
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -147,15 +148,16 @@ const SpaceObjects = () => {
       <div>
         <canvas ref={canvasRef} className="webgl"></canvas>
         <div>
-          <label htmlFor="speed-slider">Speed: {speed.toFixed(3)}</label>
+          <label htmlFor="speed-slider">Speed: {sliderValue.toFixed(3)}</label>
           <input
             id="speed-slider"
             type="range"
             min="0"
             max="1"
             step="0.01"
-            value={speed}
-            onChange={(e) => setSpeed(parseFloat(e.target.value))} // Update speed state on slider change
+            value={sliderValue}
+            onChange={(e) => setSliderValue(parseFloat(e.target.value))} // Update slider value
+            onMouseUp={() => setSpeed(sliderValue)} // Update speed state on mouse up
           />
         </div>
       </div>
