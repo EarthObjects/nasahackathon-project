@@ -8,6 +8,7 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SpaceObjects from "./spaceobjects/SpaceObjects.jsx";
+import GradientCircularProgress from "./components/GradientCircularProgress";
 
 function Home({ isListVisible, currentList }) {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -203,11 +204,11 @@ function Home({ isListVisible, currentList }) {
 
   // Loading and error states
   if (loading) {
-    return <p>Loading data...</p>;
+    return <GradientCircularProgress />;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p>Error fetching data: {error}</p>;
   }
 
   return (
