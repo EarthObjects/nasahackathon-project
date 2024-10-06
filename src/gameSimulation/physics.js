@@ -1,3 +1,4 @@
+// physics.js
 import * as CANNON from 'cannon-es';
 
 const G = 6.67430e-3; // Scaled gravitational constant for simulation
@@ -8,7 +9,7 @@ function calculateGravityForce(body1, body2) {
   const distance = distanceVector.length();
   const forceMagnitude = (G * body1.mass * body2.mass) / (distance * distance);
 
-  // Normalise to get direction
+  // Normalize to get direction
   distanceVector.normalize(); // Modifies distanceVector in place
 
   // Calculate force vector
@@ -19,9 +20,14 @@ function calculateGravityForce(body1, body2) {
 
 export class PhysicsManager {
   constructor(ship, celestialBodies) {
-    // Initialise the physics world
+    // Initialize the physics world
     this.world = new CANNON.World();
     this.world.gravity.set(0, 0, 0); // Gravity will be applied manually
+
+    // Configure solver for better collision handling
+    this.world.solver.iterations = 20;
+    this.world.solver.tolerance = 0.001;
+    this.world.solver.relaxation = 4;
 
     // Ship's physics body
     const radius = 0.5; // Same as in ship.js
@@ -37,8 +43,8 @@ export class PhysicsManager {
         ship.quaternion.z,
         ship.quaternion.w
       ),
-      angularDamping: 0.5,
-      linearDamping: 0.1,
+      angularDamping: 0.5, // Increased angular damping
+      linearDamping: 0.1,  // Adjust as needed
     });
 
     // Create compound shape for the ship (capsule)
@@ -54,6 +60,13 @@ export class PhysicsManager {
     this.shipBody.addShape(cylinderShape, new CANNON.Vec3(0, 0, 0), q);
     this.shipBody.addShape(sphereShapeTop, new CANNON.Vec3(0, length / 2, 0));
     this.shipBody.addShape(sphereShapeBottom, new CANNON.Vec3(0, -length / 2, 0));
+
+    // Enable CCD for the ship
+    this.shipBody.collisionResponse = true;
+    this.shipBody.collisionFilterGroup = 1;
+    this.shipBody.collisionFilterMask = 1;
+    this.shipBody.ccdSpeedThreshold = 1; // Activate CCD if speed > 1
+    this.shipBody.ccdIterations = 10;    // Number of CCD iterations
 
     this.world.addBody(this.shipBody);
 
@@ -76,8 +89,8 @@ export class PhysicsManager {
     const shipMaterial = new CANNON.Material('shipMaterial');
     const planetMaterial = new CANNON.Material('planetMaterial');
     const contactMaterial = new CANNON.ContactMaterial(shipMaterial, planetMaterial, {
-      friction: 0.4,
-      restitution: 0.1,
+      friction: 0.5, // Reduced friction
+      restitution: 0.2,
     });
     this.world.addContactMaterial(contactMaterial);
     this.shipBody.material = shipMaterial;
@@ -88,8 +101,8 @@ export class PhysicsManager {
     // Attach Three.js mesh to Cannon.js body
     this.shipBody.threeMesh = ship;
 
-    // Initialise fuel
-    this.fuel = 100000;
+    // Initialize fuel
+    this.fuel = 100;
   }
 
   getFuel() {
@@ -123,8 +136,12 @@ export class PhysicsManager {
       this.shipBody.rotationTorque = null;
     }
 
+    // Fixed time step
+    const fixedTimeStep = 1 / 60; // 60 FPS
+    const maxSubSteps = 3;
+
     // Step the physics simulation
-    this.world.step(deltaTime);
+    this.world.step(fixedTimeStep, deltaTime, maxSubSteps);
 
     // Update ship's position and rotation in Three.js
     this.updateShipMesh();

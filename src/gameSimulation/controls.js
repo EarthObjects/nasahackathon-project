@@ -1,8 +1,8 @@
 import * as CANNON from 'cannon-es';
 
 export function initializeControls(cameraManager, rendererDomElement, ship, physicsManager) {
-  const thrustMagnitude = 100;
-  const rotationSpeed = 5;
+  const thrustMagnitude = 50;
+  const rotationSpeed = 2;
 
   const keyState = {};
 
@@ -51,16 +51,16 @@ export function initializeControls(cameraManager, rendererDomElement, ship, phys
     }
 
     // Rotation Controls
-    if (keyState['arrowleft']) {
+    if (keyState['q']) {
       rotationTorque.y += rotationSpeed;
     }
-    if (keyState['arrowright']) {
+    if (keyState['e']) {
       rotationTorque.y -= rotationSpeed;
     }
-    if (keyState['arrowup']) {
+    if (keyState['z']) {
       rotationTorque.x += rotationSpeed;
     }
-    if (keyState['arrowdown']) {
+    if (keyState['x']) {
       rotationTorque.x -= rotationSpeed;
     }
 
@@ -68,11 +68,12 @@ export function initializeControls(cameraManager, rendererDomElement, ship, phys
     const shipBody = physicsManager.shipBody;
     if (physicsManager.fuel > 0) {
       shipBody.thrustForce = thrustForce.length() > 0 ? thrustForce : null;
-      physicsManager.fuel -= thrustForce.length() * 0.001; // Decrease fuel based on thrust
+      shipBody.rotationTorque = rotationTorque.length() > 0 ? rotationTorque : null;
+      physicsManager.fuel -= (thrustForce.length() + rotationTorque.length()) * 0.001; // Decrease fuel based on thrust and rotation
     } else {
       shipBody.thrustForce = null;
+      shipBody.rotationTorque = null;
     }
-    shipBody.rotationTorque = rotationTorque.length() > 0 ? rotationTorque : null;
   }
 
   // We need to apply controls each frame

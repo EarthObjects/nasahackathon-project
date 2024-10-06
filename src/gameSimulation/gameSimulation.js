@@ -122,6 +122,7 @@ export function initializeGame(container) {
 
     // Update Ship Coordinates
     const { x, y, z } = ship.position;
+    ship.position.set(10, y, z);
     coordsDisplay.textContent = `Ship Coordinates: x=${x.toFixed(2)}, y=${y.toFixed(2)}, z=${z.toFixed(2)}`;
 
     // Update Physics
