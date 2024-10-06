@@ -45,6 +45,7 @@ export interface Body {
   labels?: PointOfInterest[];
   traversable: boolean;
   offset?: number;
+  height?: number;
 }
 
 interface TexturePaths {
@@ -85,6 +86,7 @@ export class SpaceObject {
   mesh: THREE.Mesh;
   path?: THREE.Line;
   rng: number;
+  height: number; // New property for y-axis offset
   map: THREE.Texture;
   bumpMap?: THREE.Texture;
   specularMap?: THREE.Texture;
@@ -92,7 +94,7 @@ export class SpaceObject {
   labels: Label;
 
   constructor(body: Body) {
-    const { radius, distance, period, daylength, orbits, type, tilt } = body;
+    const { radius, distance, period, daylength, orbits, type, tilt, height } = body;
 
     this.radius = normaliseRadius(radius);
     this.distance = normaliseDistance(distance);
@@ -102,6 +104,9 @@ export class SpaceObject {
     this.type = type;
     this.tilt = degreesToRadians(tilt);
     this.rng = body.offset ?? Math.random() * 2 * Math.PI;
+    this.height = body.height ?? 0; // Initialize yOffset
+
+    this.loadTextures(body.textures);
 
     this.loadTextures(body.textures);
 
@@ -235,8 +240,9 @@ export class SpaceObject {
     const orbitRotation = this.getOrbitRotation(elapsedTime);
     const orbit = orbitRotation + this.rng;
 
-    // Circular rotation around orbit.
+    // Circular rotation around orbit with y-axis offset.
     this.mesh.position.x = Math.sin(orbit) * this.distance;
+    this.mesh.position.y = this.height; // Apply y-axis offset
     this.mesh.position.z = Math.cos(orbit) * this.distance;
 
     if (this.type === "ring") {
