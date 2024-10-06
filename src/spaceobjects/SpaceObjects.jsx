@@ -1,3 +1,4 @@
+// SpaceObjects.jsx
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -10,286 +11,340 @@ import { createSpaceObjects } from "./setup/solar-system";
 import { LAYERS } from "./constants";
 import { createDarkEnvironmentMap } from "./setup/environment-dark";
 import { createClearEnvironmentMap } from "./setup/environment-clear";
+import { createShip } from "../gameObj/ship";
+import { PhysicsManager } from "../gameObj/physics";
+import { initializeControls } from "../gameObj/controls";
+import { CameraManager } from "../gameObj/camera";
 
 export const options = {
-    showPaths: true,
-    showMoons: true,
-    focus: "Sun",
-    clock: true,
-    speed: 0.125,
-    zangle: 0,
-    yangle: 0,
+	showPaths: true,
+	showMoons: true,
+	focus: "Sun",
+	clock: true,
+	speed: 0.125,
+	zangle: 0,
+	yangle: 0,
 };
+
 const createComets = (scene, count) => {
-    const comets = [];
-    for (let i = 0; i < count; i++) {
-        const geometry = new THREE.SphereGeometry(0.05, 16, 16);
-        const material = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
-        const comet = new THREE.Mesh(geometry, material);
+	const comets = [];
+	for (let i = 0; i < count; i++) {
+		const geometry = new THREE.SphereGeometry(0.5, 16, 16); // Increased size for visibility
+		const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const comet = new THREE.Mesh(geometry, material);
 
-        const radius = Math.random() * 40 + 10;
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(Math.random() * 2 - 1);
+		const radius = Math.random() * 400 + 100;
+		const theta = Math.random() * Math.PI * 2;
+		const phi = Math.acos(2 * Math.random() - 1);
 
-        comet.position.x = radius * Math.sin(phi) * Math.cos(theta);
-        comet.position.y = radius * Math.sin(phi) * Math.sin(theta);
-        comet.position.z = radius * Math.cos(phi);
+		comet.position.x = radius * Math.sin(phi) * Math.cos(theta);
+		comet.position.y = radius * Math.sin(phi) * Math.sin(theta);
+		comet.position.z = radius * Math.cos(phi);
 
-        // Random velocity
-        comet.velocity = new THREE.Vector3(
-            (Math.random() - 0.5) * 0.4,
-            (Math.random() - 0.5) * 0.4,
-            (Math.random() - 0.5) * 0.4
-        );
+		// Random velocity
+		comet.velocity = new THREE.Vector3(
+			(Math.random() - 0.5) * 2,
+			(Math.random() - 0.5) * 2,
+			(Math.random() - 0.5) * 2
+		);
 
-        scene.add(comet);
-        comets.push(comet);
-    }
-    return comets;
+		scene.add(comet);
+		comets.push(comet);
+	}
+	return comets;
 };
 
 const createMeteors = (scene, count) => {
-    const meteors = [];
-    for (let i = 0; i < count; i++) {
-        const meteorGeometry = new THREE.SphereGeometry(0.02, 8, 8);
-        const meteorMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
-        const meteor = new THREE.Mesh(meteorGeometry, meteorMaterial);
+	const meteors = [];
+	for (let i = 0; i < count; i++) {
+		const meteorGeometry = new THREE.SphereGeometry(0.2, 8, 8);
+		const meteorMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+		const meteor = new THREE.Mesh(meteorGeometry, meteorMaterial);
 
-        const tailGeometry = new THREE.BufferGeometry();
-        const tailMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF, opacity: 0.7, transparent: true });
-        const tailPoints = [
-            new THREE.Vector3(0, 0, 0),
-            new THREE.Vector3(0, 0, -0.2),
-            new THREE.Vector3(0, 0, -0.4),
-            new THREE.Vector3(0, 0, -0.6)
-        ];
-        tailGeometry.setFromPoints(tailPoints);
-        const tail = new THREE.Line(tailGeometry, tailMaterial);
+		const tailGeometry = new THREE.BufferGeometry();
+		const tailMaterial = new THREE.LineBasicMaterial({
+			color: 0xffffff,
+			opacity: 0.7,
+			transparent: true,
+		});
+		const tailPoints = [
+			new THREE.Vector3(0, 0, 0),
+			new THREE.Vector3(0, 0, -0.2),
+			new THREE.Vector3(0, 0, -0.4),
+			new THREE.Vector3(0, 0, -0.6),
+		];
+		tailGeometry.setFromPoints(tailPoints);
+		const tail = new THREE.Line(tailGeometry, tailMaterial);
 
-        meteor.add(tail);
+		meteor.add(tail);
 
-        const radius = Math.random() * 40 + 10;
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(Math.random() * 2 - 1);
+		const radius = Math.random() * 400 + 100;
+		const theta = Math.random() * Math.PI * 2;
+		const phi = Math.acos(2 * Math.random() - 1);
 
-        meteor.position.x = radius * Math.sin(phi) * Math.cos(theta);
-        meteor.position.y = radius * Math.sin(phi) * Math.sin(theta);
-        meteor.position.z = radius * Math.cos(phi);
+		meteor.position.x = radius * Math.sin(phi) * Math.cos(theta);
+		meteor.position.y = radius * Math.sin(phi) * Math.sin(theta);
+		meteor.position.z = radius * Math.cos(phi);
 
-        meteor.velocity = new THREE.Vector3(
-            (Math.random() - 0.5) * 0.2,
-            (Math.random() - 0.5) * 0.2,
-            (Math.random() - 0.5) * 0.2
-        );
+		meteor.velocity = new THREE.Vector3(
+			(Math.random() - 0.5) * 1,
+			(Math.random() - 0.5) * 1,
+			(Math.random() - 0.5) * 1
+		);
 
-        scene.add(meteor);
-        meteors.push(meteor);
-    }
-    return meteors;
+		scene.add(meteor);
+		meteors.push(meteor);
+	}
+	return meteors;
 };
 
 const createStarField = (scene, count) => {
-    const particles = new THREE.BufferGeometry();
-    const positions = new Float32Array(count * 3);
+	const particles = new THREE.BufferGeometry();
+	const positions = new Float32Array(count * 3);
+	const radius = 5000;
 
-    for (let i = 0; i < count * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 1;
-        positions[i + 1] = (Math.random() - 0.5) * 1;
-        positions[i + 2] = (Math.random() - 0.5) * 1;
-    }
+	for (let i = 0; i < count * 3; i += 3) {
+		const theta = Math.random() * 2 * Math.PI;
+		const phi = Math.acos(2 * Math.random() - 1);
+		const r = radius * Math.cbrt(Math.random());
 
-    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+		positions[i] = r * Math.sin(phi) * Math.cos(theta);
+		positions[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+		positions[i + 2] = r * Math.cos(phi);
+	}
 
-    const material = new THREE.PointsMaterial({
-        color: 0xFFFFFF,
-        size: 0.1,
-        transparent: true,
-        opacity: 0.8,
-        sizeAttenuation: true,
-    });
+	particles.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
-    const starField = new THREE.Points(particles, material);
-    scene.add(starField);
-    return starField;
+	const material = new THREE.PointsMaterial({
+		color: 0xffffff,
+		size: 1,
+		transparent: true,
+		opacity: 0.8,
+		sizeAttenuation: true,
+	});
+
+	const starField = new THREE.Points(particles, material);
+	scene.add(starField);
+	return starField;
 };
 
 const SpaceObjects = ({ theme }) => {
-    const canvasRef = useRef(null);
+	const canvasRef = useRef(null);
 
-    useEffect(() => {
-        const scene = new THREE.Scene();
-        if (theme?.palette?.mode === 'dark') {
-            console.log('dark mode');
-            scene.background = createDarkEnvironmentMap("./textures/environment");
-        } else {
-            console.log('light mode');
-            scene.background = createClearEnvironmentMap("./textures/environment");
-        }
+	useEffect(() => {
+		const scene = new THREE.Scene();
+		if (theme?.palette?.mode === "dark") {
+			console.log("dark mode");
+			scene.background = createDarkEnvironmentMap("./textures/environment");
+		} else {
+			console.log("light mode");
+			scene.background = createClearEnvironmentMap("./textures/environment");
+		}
 
-        // Lights setup
-        const [ambientLight, pointLight] = createLights();
-        scene.add(ambientLight, pointLight);
+		// Lights setup
+		const [ambientLight, pointLight] = createLights();
+		scene.add(ambientLight, pointLight);
 
-        // Camera setup
-        const sizes = {
-            width: 800,
-            height: 400,
-        };
+		// Camera setup
+		const sizes = {
+			width: 800,
+			height: 400,
+		};
 
-        const aspect = sizes.width / sizes.height;
-        const camera = new THREE.PerspectiveCamera(70, aspect, 0.1, 1000);
-        camera.position.set(0, 20, 0);
+		const aspect = sizes.width / sizes.height;
+		const camera = new THREE.PerspectiveCamera(70, aspect, 0.1, 1000000);
 
-        // Renderer setup
-        const renderer = new THREE.WebGLRenderer({
-            canvas: canvasRef.current,
-            antialias: true,
-        });
-        renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
-        renderer.setSize(sizes.width, sizes.height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		// Renderer setup
+		const renderer = new THREE.WebGLRenderer({
+			canvas: canvasRef.current,
+			antialias: true,
+		});
+		renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+		renderer.setSize(sizes.width, sizes.height);
+		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+		renderer.shadowMap.enabled = true;
+		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-        // Solar system setup
-        // Solar system and space object setup
-        const [solarSystem, planetNames] = createSpaceObjects(scene);
-        const comets = createComets(scene, 10); // Create 10 comets
-        const meteors = createMeteors(scene, 10); // Create 20 meteors
-        const starField = createStarField(scene, 5000); // Create 5000 star particles
-        const fakeCamera = camera.clone();
-        const controls = new OrbitControls(fakeCamera, canvasRef.current);
-        controls.target = solarSystem["Sun"].mesh.position;
-        controls.enableDamping = true;
-        controls.enablePan = false;
-        controls.minDistance = solarSystem["Sun"].getMinDistance();
-        controls.maxDistance = 50;
+		// Solar system and space object setup
+		const [solarSystem, planetNames] = createSpaceObjects(scene);
+		const comets = createComets(scene, 10); // Create 10 comets
+		const meteors = createMeteors(scene, 10); // Create 10 meteors
+		const starField = createStarField(scene, 5000); // Create 5000 star particles
 
-        const changeFocus = (oldFocus, newFocus) => {
-            solarSystem[oldFocus].mesh.remove(camera);
-            solarSystem[newFocus].mesh.add(camera);
-            const minDistance = solarSystem[newFocus].getMinDistance();
-            controls.minDistance = minDistance;
-            fakeCamera.position.set(minDistance, minDistance / 3, 0);
-            solarSystem[oldFocus].labels.hidePOI();
-            solarSystem[newFocus].labels.showPOI();
-        };
+		// Camera Manager and Controls
+		const fakeCamera = new THREE.PerspectiveCamera(
+			70,
+			sizes.width / sizes.height,
+			0.1,
+			1000000
+		);
+		fakeCamera.position.set(0, 1000, 1000);
+		fakeCamera.lookAt(new THREE.Vector3(0, 0, 0));
+		const controls = new OrbitControls(fakeCamera, canvasRef.current);
+		controls.target.set(0, 0, 0);
+		controls.enableDamping = true;
+		controls.enablePan = false;
+		controls.minDistance = 10;
+		controls.maxDistance = 1000000; // Adjust as needed
 
-        const labelRenderer = new CSS2DRenderer();
-        labelRenderer.setSize(sizes.width, sizes.height);
-        labelRenderer.domElement.style.position = 'absolute';
-        labelRenderer.domElement.style.top = '0';
-        labelRenderer.domElement.style.pointerEvents = 'none';
-        canvasRef.current.parentNode.appendChild(labelRenderer.domElement);
+		// Initialize Camera Manager
+		const cameraManager = new CameraManager(
+			canvasRef.current,
+			fakeCamera,
+			controls
+		);
+		let currentCamera = cameraManager.getCurrentCamera();
 
-        // Effect composer for bloom effect
-        const renderScene = new RenderPass(scene, camera);
-        const bloomPass = new UnrealBloomPass(
-            new THREE.Vector2(sizes.width, sizes.height),
-            0.75,
-            0,
-            1
-        );
-        const bloomComposer = new EffectComposer(renderer);
-        bloomComposer.setSize(sizes.width, sizes.height);
-        bloomComposer.renderToScreen = true;
-        bloomComposer.addPass(renderScene);
-        bloomComposer.addPass(bloomPass);
+		// Create Ship
+		const ship = createShip();
+		scene.add(ship);
 
-        // Animation loop
-        const clock = new THREE.Clock();
-        let elapsedTime = 0;
-        fakeCamera.layers.enable(LAYERS.POILabel);
+		// Position the ship near Earth or any other celestial body
+		const earth = solarSystem["Earth"].mesh;
+		const earthRadius = earth.geometry.parameters.radius || 1;
 
-        const tick = () => {
-            elapsedTime += clock.getDelta() * options.speed;
+		const earthPosition = new THREE.Vector3();
+		earth.getWorldPosition(earthPosition);
 
-            for (const object of Object.values(solarSystem)) {
-                object.tick(elapsedTime);
-            }
+		ship.position
+			.copy(earthPosition)
+			.add(new THREE.Vector3(earthRadius + 10, 0, 0));
 
-            // Update comet positions
-            for (const comet of comets) {
-                comet.position.add(comet.velocity);
+		// Initialize Physics Manager
+		const physicsManager = new PhysicsManager(
+			ship,
+			Object.values(solarSystem).map((obj) => obj.mesh)
+		);
 
-                // If comet goes too far, reset its position
-                if (comet.position.length() > 50) {
-                    comet.position.setLength(Math.random() * 40 + 10);
-                }
-            }
+		// Controls
+		const { cleanup: controlsCleanup } = initializeControls(
+			physicsManager.shipBody,
+			cameraManager
+		);
 
-            // Update meteor positions
-            for (const meteor of meteors) {
-                meteor.position.add(meteor.velocity);
+		const labelRenderer = new CSS2DRenderer();
+		labelRenderer.setSize(sizes.width, sizes.height);
+		labelRenderer.domElement.style.position = "absolute";
+		labelRenderer.domElement.style.top = "0";
+		labelRenderer.domElement.style.pointerEvents = "none";
+		canvasRef.current.parentNode.appendChild(labelRenderer.domElement);
 
-                // Update tail position
-                const tailPoints = meteor.children[0].geometry.attributes.position.array;
-                for (let i = 3; i < tailPoints.length; i += 3) {
-                    tailPoints[i] = -meteor.velocity.x * (i / 3) * 0.8;
-                    tailPoints[i + 1] = -meteor.velocity.y * (i / 3) * 0.8;
-                    tailPoints[i + 2] = -meteor.velocity.z * (i / 3) * 0.8;
-                }
-                meteor.children[0].geometry.attributes.position.needsUpdate = true;
+		// Effect composer for bloom effect
+		const renderScene = new RenderPass(scene, camera);
+		const bloomPass = new UnrealBloomPass(
+			new THREE.Vector2(sizes.width, sizes.height),
+			0.75,
+			0,
+			1
+		);
+		const bloomComposer = new EffectComposer(renderer);
+		bloomComposer.setSize(sizes.width, sizes.height);
+		bloomComposer.renderToScreen = true;
+		bloomComposer.addPass(renderScene);
+		bloomComposer.addPass(bloomPass);
 
-                // If meteor goes too far, reset its position
-                if (meteor.position.length() > 50) {
-                    meteor.position.setLength(Math.random() * 40 + 10);
-                }
-            }
+		// Animation loop
+		const clock = new THREE.Clock();
+		let elapsedTime = 0;
+		fakeCamera.layers.enable(LAYERS.POILabel);
 
-            camera.copy(fakeCamera);
-            controls.update();
+		const tick = () => {
+			const deltaTime = clock.getDelta();
+			elapsedTime += deltaTime * options.speed;
 
-            const currentBody = solarSystem[options.focus];
-            currentBody.labels.update(fakeCamera);
+			// Update solar system objects
+			for (const object of Object.values(solarSystem)) {
+				object.tick(elapsedTime);
+			}
 
-            bloomComposer.render();
-            labelRenderer.render(scene, camera);
+			// Update comet positions
+			for (const comet of comets) {
+				comet.position.add(comet.velocity);
 
-            requestAnimationFrame(tick);
-        };
+				// If comet goes too far, reset its position
+				if (comet.position.length() > 5000) {
+					comet.position.setLength(Math.random() * 400 + 100);
+				}
+			}
 
-        tick();
+			// Update meteor positions
+			for (const meteor of meteors) {
+				meteor.position.add(meteor.velocity);
 
-        // Listen for custom event to switch camera
-        const handleSwitchCamera = (event) => {
-            const newFocus = event.detail.planetName;
-            if (newFocus && planetNames.includes(newFocus)) {
-                changeFocus(options.focus, newFocus);
-                options.focus = newFocus;
-            }
-        };
+				// Update tail position
+				const tailLength = 0.6;
+				const tailSegments = 4;
+				const tailPoints = [];
+				for (let j = 0; j <= tailSegments; j++) {
+					const factor = j / tailSegments;
+					tailPoints.push(
+						new THREE.Vector3(
+							-meteor.velocity.x * factor * tailLength,
+							-meteor.velocity.y * factor * tailLength,
+							-meteor.velocity.z * factor * tailLength
+						)
+					);
+				}
+				meteor.children[0].geometry.setFromPoints(tailPoints);
 
-        window.addEventListener('switchCamera', handleSwitchCamera);
+				// If meteor goes too far, reset its position
+				if (meteor.position.length() > 5000) {
+					meteor.position.setLength(Math.random() * 400 + 100);
+				}
+			}
 
-        // Handle window resize
-        const handleResize = () => {
-            sizes.width = window.innerWidth;
-            sizes.height = window.innerHeight;
+			// Update physics
+			physicsManager.update(deltaTime);
 
-            camera.aspect = sizes.width / sizes.height;
-            camera.updateProjectionMatrix();
+			// Update camera based on camera mode
+			if (cameraManager.currentCamera === "overview") {
+				controls.update();
+				currentCamera = cameraManager.getCurrentCamera();
+			} else {
+				cameraManager.updateCamera(ship);
+				currentCamera = cameraManager.getCurrentCamera();
+			}
 
-            renderer.setSize(sizes.width, sizes.height);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            bloomComposer.setSize(sizes.width, sizes.height);
-            labelRenderer.setSize(sizes.width, sizes.height);
-        };
+			// Update renderPass camera
+			renderScene.camera = currentCamera;
 
-        window.addEventListener("resize", handleResize);
+			// Render scene
+			bloomComposer.render();
+			labelRenderer.render(scene, currentCamera);
 
-        // Cleanup event listeners on unmount
-        return () => {
-            window.removeEventListener('switchCamera', handleSwitchCamera);
-            window.removeEventListener("resize", handleResize);
-        };
-    }, [theme]);
+			requestAnimationFrame(tick);
+		};
 
-    return (
-        <div>
-            <canvas id="test" ref={canvasRef} className="webgl"></canvas>
-        </div>
-    );
+		tick();
+
+		// Handle window resize
+		const handleResize = () => {
+			sizes.width = window.innerWidth;
+			sizes.height = window.innerHeight;
+
+			renderer.setSize(sizes.width, sizes.height);
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			bloomComposer.setSize(sizes.width, sizes.height);
+			labelRenderer.setSize(sizes.width, sizes.height);
+
+			cameraManager.onWindowResize();
+		};
+
+		window.addEventListener("resize", handleResize);
+
+		// Cleanup on unmount
+		return () => {
+			window.removeEventListener("resize", handleResize);
+			controls.dispose();
+			controlsCleanup();
+		};
+	}, [theme]);
+
+	return (
+		<div>
+			<canvas id="test" ref={canvasRef} className="webgl"></canvas>
+		</div>
+	);
 };
 
 export default SpaceObjects;
