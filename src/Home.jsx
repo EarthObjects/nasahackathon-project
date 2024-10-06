@@ -247,7 +247,7 @@ function Home({ isListVisible, currentList }) {
                 alignItems: "center",
                 height: "100%",
               }}
-            />
+            theme={theme} />
           </Animate>
         </Grid>
       </Grid>

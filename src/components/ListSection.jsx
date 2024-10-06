@@ -13,6 +13,7 @@ import ImageIcon from "@mui/icons-material/Image";
 import WorkIcon from "@mui/icons-material/Work";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+
 import { useTheme } from "@mui/material/styles";
 
 const ListSection = ({ title, items, onViewMore, onItemClick }) => {
@@ -99,3 +100,4 @@ const ListSection = ({ title, items, onViewMore, onItemClick }) => {
 };
 
 export default ListSection;
+

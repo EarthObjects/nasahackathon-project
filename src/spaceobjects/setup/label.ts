@@ -38,6 +38,7 @@ export class Label {
 
     const text = document.createElement("p");
     text.textContent = poi.name;
+    text.style.color = "white";
     container.appendChild(text);
 
     const label = new CSS2DObject(container);
