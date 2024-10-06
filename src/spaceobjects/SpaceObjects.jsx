@@ -131,10 +131,10 @@ const SpaceObjects = ({ theme }) => {
         scene.add(ambientLight, pointLight);
 
         // Camera setup
-        const sizes = {
-            width: 760,
-            height: 500,
-        };
+		const sizes = {
+			width: window.innerWidth- window.innerWidth*0.45,
+			height: 500,
+		};
 
         const aspect = sizes.width / sizes.height;
         const camera = new THREE.PerspectiveCamera(70, aspect, 0.1, 1000);
@@ -279,20 +279,27 @@ const SpaceObjects = ({ theme }) => {
         window.addEventListener('switchCamera', handleSwitchCamera);
 
         // Handle window resize
-        const handleResize = () => {
-            sizes.width = window.innerWidth;
-            sizes.height = window.innerHeight;
+		const handleResize = () => {
+			const aspectRatio = sizes.width / sizes.height;
+			if(window.innerWidth < 900) {
+				sizes.width = window.innerWidth;
+				sizes.height = sizes.width / aspectRatio;
+			} else {
+				sizes.width = window.innerWidth - window.innerWidth * 0.45;
+				sizes.height = sizes.width / aspectRatio;
+			}
+			camera.aspect = sizes.width / sizes.height;
+			camera.updateProjectionMatrix();
 
-            camera.aspect = sizes.width / sizes.height;
-            camera.updateProjectionMatrix();
-
-            renderer.setSize(sizes.width, sizes.height);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            bloomComposer.setSize(sizes.width, sizes.height);
-            labelRenderer.setSize(sizes.width, sizes.height);
-        };
+			renderer.setSize(sizes.width, sizes.height);
+			renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+			bloomComposer.setSize(sizes.width, sizes.height);
+			labelRenderer.setSize(sizes.width, sizes.height);
+		};
 
         window.addEventListener("resize", handleResize);
+		window.addEventListener("orientationchange", handleResize);
+		window.addEventListener("load", handleResize);
 
         // Cleanup event listeners on unmount
         return () => {
