@@ -35,8 +35,8 @@ const SpaceObjects = () => {
 
         // Camera setup
         const sizes = {
-            width: window.innerWidth,
-            height: window.innerHeight,
+            width: 800,
+            height: 500,
         };
 
         const aspect = sizes.width / sizes.height;
@@ -146,7 +146,9 @@ const SpaceObjects = () => {
 
     return (
         <>
-            <canvas ref={canvasRef} className="webgl"></canvas>
+            <div>
+                <canvas ref={canvasRef} className="webgl"></canvas>
+            </div>
         </>
     );
 };
