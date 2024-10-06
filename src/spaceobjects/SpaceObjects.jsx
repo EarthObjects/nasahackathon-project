@@ -66,6 +66,18 @@ const SpaceObjects = () => {
         controls.minDistance = solarSystem["Sun"].getMinDistance();
         controls.maxDistance = 50;
 
+
+        const changeFocus = (oldFocus, newFocus) => {
+            solarSystem[oldFocus].mesh.remove(camera);
+            solarSystem[newFocus].mesh.add(camera);
+            const minDistance = solarSystem[newFocus].getMinDistance();
+            controls.minDistance = minDistance;
+            fakeCamera.position.set(minDistance, minDistance / 3, 0);
+            solarSystem[oldFocus].labels.hidePOI();
+            solarSystem[newFocus].labels.showPOI();
+        };
+
+
         // Label renderer setup
         const labelRenderer = new CSS2DRenderer();
         labelRenderer.setSize(sizes.width, sizes.height);
@@ -118,6 +130,30 @@ const SpaceObjects = () => {
 
         tick();
 
+        // Change focus when a button with class "switch-camera" is clicked
+        const handleSwitchCamera = (event) => {
+            if (event.target.classList.contains('switch-camera')) {
+                const newFocus = event.target.getAttribute('object-name');
+                if (newFocus && planetNames.includes(newFocus)) {
+                    changeFocus(options.focus, newFocus);
+                    options.focus = newFocus;
+                }
+            }
+        };
+
+        const buttons = document.querySelectorAll(".switch-camera");
+
+        // loop through each button and add a click event listener
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                const newFocus = this.getAttribute('object-name');
+                if (newFocus && planetNames.includes(newFocus)) {
+                    changeFocus(options.focus, newFocus);
+                    options.focus = newFocus;
+                }
+            });
+        });
+
         // Handle window resize
         const handleResize = () => {
             sizes.width = window.innerWidth;
@@ -133,14 +169,6 @@ const SpaceObjects = () => {
         };
 
         window.addEventListener("resize", handleResize);
-
-        // Cleanup function when component unmounts
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            document.body.removeChild(labelRenderer.domElement);
-            controls.dispose();
-            renderer.dispose();
-        };
     }, []);
 
 
