@@ -16,7 +16,7 @@ export const options = {
     showMoons: true,
     focus: "Sun",
     clock: true,
-    speed: 0.125,
+    speed: 0.2,
     zangle: 0,
     yangle: 0,
 };

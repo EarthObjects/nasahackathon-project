@@ -18,8 +18,8 @@ const Detail = ({ item, onBack, onPlanetOpen }) => {
                 return <AutoAwesomeIcon />;
             case 'warning':
                 return <WarningAmberIcon />;
-                case 'moon':
-                    return <Brightness3Icon />;
+            case 'moon':
+                return <Brightness3Icon />;
             default:
                 return null;
         }
@@ -44,7 +44,7 @@ const Detail = ({ item, onBack, onPlanetOpen }) => {
                         {getIcon(item.avatar)}
                     </Avatar>
                 ) : (
-                <Avatar src={item.avatar} alt={item.primary} />
+                    <Avatar src={item.avatar} alt={item.primary} />
                 )}
                 <Typography variant="h5" component="div">
                     {item.primary}
@@ -53,7 +53,7 @@ const Detail = ({ item, onBack, onPlanetOpen }) => {
                     {item.secondary}
                 </Typography>
                 <Button variant="contained" color="secondary" onClick={handlePlanetOpen}>
-                    Open Planet
+                    Open
                 </Button>
             </CardContent>
         </Card>
