@@ -193,6 +193,19 @@ const SpaceObjects = ({ theme }) => {
     bloomComposer.addPass(renderScene);
     bloomComposer.addPass(bloomPass);
 
+    const renderScene2 = new RenderPass(scene, camera);
+        const bloomPass2 = new UnrealBloomPass(
+            new THREE.Vector2(sizes.width, sizes.height),
+            0.5, // Bloom strength
+            0.4,  // Bloom radius
+            0.2  // Bloom threshold
+        );
+        const bloomComposer2 = new EffectComposer(renderer);
+        bloomComposer2.setSize(sizes.width, sizes.height);
+        bloomComposer2.renderToScreen = true;
+        bloomComposer2.addPass(renderScene2);
+        bloomComposer2.addPass(bloomPass2);
+
     const clock = new THREE.Clock();
     let elapsedTime = 0;
     fakeCamera.layers.enable(LAYERS.POILabel);
@@ -236,6 +249,7 @@ const SpaceObjects = ({ theme }) => {
       currentBody.labels.update(fakeCamera);
 
       bloomComposer.render();
+      bloomComposer2.render();
       labelRenderer.render(scene, camera);
 
       requestAnimationFrame(tick);
