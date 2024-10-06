@@ -29,12 +29,13 @@ const ListSection = ({ title, items, onViewMore, onItemClick }) => {
 
     return (
         <Grid sx={{ mt: 0, mb: 5 }}>
-            <Typography variant="h6" component="div" gutterBottom sx={{color: theme.palette.text.primary}}>
+            <Typography variant="h6" component="div" gutterBottom sx={{ color: theme.palette.text.primary }}>
                 {title ? title.replace(/_/g, ' ').charAt(0).toUpperCase() + title.replace(/_/g, ' ').slice(1) : 'Default Title'}
             </Typography>
             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                 {(showAll ? items : items.slice(0, 4)).map((item, index) => (
                     <ListItem
+                        className="switch-camera" object-name="Earth"
                         key={index}
                         sx={{
                             color: theme.palette.text.primary,

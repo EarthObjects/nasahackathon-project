@@ -131,10 +131,9 @@ const SpaceObjects = () => {
         tick();
 
         const buttons = document.querySelectorAll(".switch-camera");
-
-        // loop through each button and add a click event listener
         buttons.forEach(function(button) {
             button.addEventListener("click", function() {
+                console.log("Here");
                 const newFocus = this.getAttribute('object-name');
                 if (newFocus && planetNames.includes(newFocus)) {
                     changeFocus(options.focus, newFocus);
