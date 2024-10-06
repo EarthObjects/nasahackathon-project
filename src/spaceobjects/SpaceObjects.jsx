@@ -88,6 +88,31 @@ const createMeteors = (scene, count) => {
     return meteors;
 };
 
+const createStarField = (scene, count) => {
+    const particles = new THREE.BufferGeometry();
+    const positions = new Float32Array(count * 3);
+
+    for (let i = 0; i < count * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 1;
+        positions[i + 1] = (Math.random() - 0.5) * 1;
+        positions[i + 2] = (Math.random() - 0.5) * 1;
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+        color: 0xFFFFFF,
+        size: 0.1,
+        transparent: true,
+        opacity: 0.8,
+        sizeAttenuation: true,
+    });
+
+    const starField = new THREE.Points(particles, material);
+    scene.add(starField);
+    return starField;
+};
+
 const SpaceObjects = ({ theme }) => {
     const canvasRef = useRef(null);
 
@@ -131,7 +156,7 @@ const SpaceObjects = ({ theme }) => {
         const [solarSystem, planetNames] = createSpaceObjects(scene);
         const comets = createComets(scene, 10); // Create 10 comets
         const meteors = createMeteors(scene, 10); // Create 20 meteors
-
+        const starField = createStarField(scene, 5000); // Create 5000 star particles
         const fakeCamera = camera.clone();
         const controls = new OrbitControls(fakeCamera, canvasRef.current);
         controls.target = solarSystem["Sun"].mesh.position;
