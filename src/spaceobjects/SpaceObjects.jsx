@@ -20,6 +20,73 @@ export const options = {
     zangle: 0,
     yangle: 0,
 };
+const createComets = (scene, count) => {
+    const comets = [];
+    for (let i = 0; i < count; i++) {
+        const geometry = new THREE.SphereGeometry(0.05, 16, 16);
+        const material = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+        const comet = new THREE.Mesh(geometry, material);
+
+        const radius = Math.random() * 40 + 10;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(Math.random() * 2 - 1);
+
+        comet.position.x = radius * Math.sin(phi) * Math.cos(theta);
+        comet.position.y = radius * Math.sin(phi) * Math.sin(theta);
+        comet.position.z = radius * Math.cos(phi);
+
+        // Random velocity
+        comet.velocity = new THREE.Vector3(
+            (Math.random() - 0.5) * 0.4,
+            (Math.random() - 0.5) * 0.4,
+            (Math.random() - 0.5) * 0.4
+        );
+
+        scene.add(comet);
+        comets.push(comet);
+    }
+    return comets;
+};
+
+const createMeteors = (scene, count) => {
+    const meteors = [];
+    for (let i = 0; i < count; i++) {
+        const meteorGeometry = new THREE.SphereGeometry(0.02, 8, 8);
+        const meteorMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+        const meteor = new THREE.Mesh(meteorGeometry, meteorMaterial);
+
+        const tailGeometry = new THREE.BufferGeometry();
+        const tailMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF, opacity: 0.7, transparent: true });
+        const tailPoints = [
+            new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(0, 0, -0.2),
+            new THREE.Vector3(0, 0, -0.4),
+            new THREE.Vector3(0, 0, -0.6)
+        ];
+        tailGeometry.setFromPoints(tailPoints);
+        const tail = new THREE.Line(tailGeometry, tailMaterial);
+
+        meteor.add(tail);
+
+        const radius = Math.random() * 40 + 10;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(Math.random() * 2 - 1);
+
+        meteor.position.x = radius * Math.sin(phi) * Math.cos(theta);
+        meteor.position.y = radius * Math.sin(phi) * Math.sin(theta);
+        meteor.position.z = radius * Math.cos(phi);
+
+        meteor.velocity = new THREE.Vector3(
+            (Math.random() - 0.5) * 0.2,
+            (Math.random() - 0.5) * 0.2,
+            (Math.random() - 0.5) * 0.2
+        );
+
+        scene.add(meteor);
+        meteors.push(meteor);
+    }
+    return meteors;
+};
 
 const SpaceObjects = ({ theme }) => {
     const canvasRef = useRef(null);
@@ -60,8 +127,10 @@ const SpaceObjects = ({ theme }) => {
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
         // Solar system setup
+        // Solar system and space object setup
         const [solarSystem, planetNames] = createSpaceObjects(scene);
-        solarSystem["Sun"].mesh.add(camera);
+        const comets = createComets(scene, 10); // Create 10 comets
+        const meteors = createMeteors(scene, 10); // Create 20 meteors
 
         const fakeCamera = camera.clone();
         const controls = new OrbitControls(fakeCamera, canvasRef.current);
@@ -113,6 +182,35 @@ const SpaceObjects = ({ theme }) => {
 
             for (const object of Object.values(solarSystem)) {
                 object.tick(elapsedTime);
+            }
+
+            // Update comet positions
+            for (const comet of comets) {
+                comet.position.add(comet.velocity);
+
+                // If comet goes too far, reset its position
+                if (comet.position.length() > 50) {
+                    comet.position.setLength(Math.random() * 40 + 10);
+                }
+            }
+
+            // Update meteor positions
+            for (const meteor of meteors) {
+                meteor.position.add(meteor.velocity);
+
+                // Update tail position
+                const tailPoints = meteor.children[0].geometry.attributes.position.array;
+                for (let i = 3; i < tailPoints.length; i += 3) {
+                    tailPoints[i] = -meteor.velocity.x * (i / 3) * 0.8;
+                    tailPoints[i + 1] = -meteor.velocity.y * (i / 3) * 0.8;
+                    tailPoints[i + 2] = -meteor.velocity.z * (i / 3) * 0.8;
+                }
+                meteor.children[0].geometry.attributes.position.needsUpdate = true;
+
+                // If meteor goes too far, reset its position
+                if (meteor.position.length() > 50) {
+                    meteor.position.setLength(Math.random() * 40 + 10);
+                }
             }
 
             camera.copy(fakeCamera);
