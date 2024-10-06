@@ -6,7 +6,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import BeachIcon from '@mui/icons-material/BeachAccess';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
-const Detail = ({ item, onBack }) => {
+const Detail = ({ item, onBack, onPlanetOpen }) => {
     const getIcon = (iconName) => {
         switch (iconName) {
             case 'image':
@@ -20,6 +20,14 @@ const Detail = ({ item, onBack }) => {
             default:
                 return null;
         }
+    };
+
+    const handlePlanetOpen = () => {
+        if (onPlanetOpen) {
+            onPlanetOpen(item);
+        }
+        const event = new CustomEvent('switchCamera', { detail: { planetName: item.primary } });
+        window.dispatchEvent(event);
     };
 
     return (
@@ -37,6 +45,9 @@ const Detail = ({ item, onBack }) => {
                 <Typography variant="body2" color="text.secondary">
                     {item.secondary}
                 </Typography>
+                <Button variant="contained" color="secondary" onClick={handlePlanetOpen}>
+                    Open Planet
+                </Button>
             </CardContent>
         </Card>
     );
