@@ -16,6 +16,7 @@ function Home({ isListVisible, currentList }) {
   const [comets, setComets] = useState([]); // State for comets data
   const [planets, setPlanets] = useState([]); // State for planets data
   const [moons, setMoons] = useState([]); // State for moons data
+  const [potentialHazards, setPotentialHazards] = useState([]); // State for potential hazards data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState(null); // Error state
   const theme = useTheme();
@@ -140,6 +141,42 @@ function Home({ isListVisible, currentList }) {
     }
   };
 
+  const fetchHazards = async () => {
+    try {
+      const response = await fetch("https://spacebackend-production.up.railway.app/hazards/");
+      if (!response.ok) {
+        throw new Error("Failed to fetch hazards");
+      }
+      const data = await response.json();
+      const hazards = [];
+
+      Object.keys(data.near_earth_objects).forEach(date => {
+        data.near_earth_objects[date].forEach(neo => {
+          if (neo.is_potentially_hazardous_asteroid) {
+            hazards.push({
+              id: neo.id,
+              primary: neo.name,
+              secondary: date,
+              magnitude: neo.absolute_magnitude_h,
+              diameter_min: neo.estimated_diameter.meters.estimated_diameter_min,
+              diameter_max: neo.estimated_diameter.meters.estimated_diameter_max,
+              third: `Velocity: ${neo.close_approach_data[0].relative_velocity.kilometers_per_hour} km/h`,
+              fourth: `Miss distance: ${neo.close_approach_data[0].miss_distance.kilometers} km`,
+              orbiting_body: neo.close_approach_data[0].orbiting_body,
+              avatar: "warning",
+            });
+          }
+        });
+      });
+
+      setPotentialHazards(hazards);
+    } catch (error) {
+      console.error("Error fetching moons:", error);
+      setError(error.message);
+    }
+  };
+
+
   // Fetch data on component mount
   useEffect(() => {
     const fetchData = async () => {
@@ -147,30 +184,13 @@ function Home({ isListVisible, currentList }) {
       await fetchAsteroids();
       await fetchComets();
       await fetchPlanets(); // Fetch planets data
-      await fetchMoons(); // Fetch moons data
+      await fetchMoons();
+      await fetchHazards();// Fetch moons data
       setLoading(false); // Set loading state to false when done
     };
 
     fetchData(); // Call the fetch function
   }, []); // Empty dependency array to run once on component mount
-
-  const potentialHazards = [
-    {
-      primary: "Object 1",
-      secondary: "203,201 km from Earth",
-      avatar: "warning",
-    },
-    {
-      primary: "Asteroid 1",
-      secondary: "203,201 km from Earth",
-      avatar: "warning",
-    },
-    {
-      primary: "Comet 1",
-      secondary: "203,201 km from Earth",
-      avatar: "warning",
-    },
-  ];
 
   // Get list items dynamically based on the current view
   const getListItems = () => {

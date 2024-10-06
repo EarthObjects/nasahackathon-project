@@ -270,7 +270,10 @@ const SpaceObjects = ({ theme }) => {
             if (newFocus && planetNames.includes(newFocus)) {
                 changeFocus(options.focus, newFocus);
                 options.focus = newFocus;
-            }
+            } else {
+				changeFocus(options.focus, "Bandusia");
+				options.focus = "Bandusia";
+			}
         };
 
         window.addEventListener('switchCamera', handleSwitchCamera);
