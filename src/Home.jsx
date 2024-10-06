@@ -73,6 +73,11 @@ function Home({ isListVisible, currentList }) {
         }, 300); // Match the duration of the animation
     };
 
+    const handlePlanetOpen = (item) => {
+        console.log('Planet opened:', item);
+        // Add your event propagation logic here
+    };
+
     return (
         <Container style={{ backgroundColor: theme.palette.background.default }}>
             <Grid container spacing={2}>
@@ -97,7 +102,7 @@ function Home({ isListVisible, currentList }) {
                     >
                         {selectedItem && (
                             <Box>
-                                <Detail item={selectedItem} onBack={handleBack} />
+                                <Detail item={selectedItem} onBack={handleBack} onPlanetOpen={handlePlanetOpen} />
                                 <Box sx={{ p: 14 }}>
                                 </Box>
                             </Box>
